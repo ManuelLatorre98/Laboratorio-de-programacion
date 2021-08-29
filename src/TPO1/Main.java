@@ -7,7 +7,7 @@ import java.util.concurrent.ForkJoinPool;
 public class Main {
 	public static void main(String[] args) {
 		GeneradorListaImagenes generador= new GeneradorListaImagenes();
-		List <Imagen>imagenes= generador.generar(50);//Generara 20 imagenes de como maximo 50mb
+		List <Imagen>imagenes= generador.generar(300);//Generara 20 imagenes de como maximo 50mb
 		
 		ProcesadorImagenes procesadorImagen= new ProcesadorImagenes(imagenes,0,imagenes.size());
 		ForkJoinPool pool = new ForkJoinPool();

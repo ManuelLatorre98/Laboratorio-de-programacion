@@ -1,0 +1,6 @@
+Dominio: La plataforma PEDCO luego de 7 caidas, un incendio y 3 mantenimientos en un dia, logro implementar una nueva funcionalidad que permite
+el procesamiento de listas de archivos de texto, imagenes y videos. La plataforma cuenta con muchos procesadores para realizar dicho proceso, pero cada uno
+solo puede procesar listas de archivos de 300mb como maximo, si algun usuario subiese listas de archivos que son mas pesadas, cada nucleo detectara que es 
+una tarea que lo sobreexige y dividira la lista en 2, delegando la responsabilidad a otros 2 procesos para que realicen la tarea, asi mismo estos 2
+procesos podran dividir la lista y delegar la responsabilidad nuevamente hasta que cada sub-lista sea de tamaño lo suficientemente pequeña para ser 
+procesada por un unico procesador 
