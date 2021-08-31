@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 
-public class ProcesadorImagenes extends RecursiveAction{
+public class ProcesadorImagenes extends RecursiveAction extends ProcesadorArchivos { //No puede haber 2 extends
 	private List<Imagen>imagenes;
 	private int primera;
 	private int ultima;
@@ -42,7 +42,7 @@ public class ProcesadorImagenes extends RecursiveAction{
 		return tamTot;
 	}
 	
-	private void procesar() {
+	public void procesar() {
 		System.out.println("Procesando lista de imagenes de "+this.calcularTamLista()+"mb"+" cantIMG: "+(ultima-primera));
 		try {
 			Thread.sleep(2000);
