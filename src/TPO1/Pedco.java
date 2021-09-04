@@ -1,14 +1,9 @@
 package TPO1;
 
-import java.util.List;
-import java.util.concurrent.ForkJoinPool;
-
 public class Pedco {
 	private ProcesadorArchivos strategy;
 	
-	public void execute(ProcesadorArchivos estrategia) {
-		this.strategy=estrategia;
-		
+	public void procesarArchivos(Object listaArchivos) {
 		
 		strategy.procesar();
 	}
@@ -20,7 +15,5 @@ public class Pedco {
 	public ProcesadorArchivos getStrategy() {
 		return this.strategy;
 	}
-	
-	
 	
 }

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 
-public class ProcesadorImagenes extends RecursiveAction extends ProcesadorArchivos { //No puede haber 2 extends
+public class ProcesadorImagenes extends RecursiveAction implements ProcesadorArchivos { //No puede haber 2 extends
 	private List<Imagen>imagenes;
 	private int primera;
 	private int ultima;
