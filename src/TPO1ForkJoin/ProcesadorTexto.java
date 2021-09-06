@@ -1,9 +1,19 @@
 package TPO1ForkJoin;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import org.apache.commons.io.FileUtils;
 
@@ -30,7 +40,6 @@ public class ProcesadorTexto extends RecursiveAction implements ProcesadorArchiv
 		}else {
 			int medio=(ultima+primera)/2;
 			if(ultima-primera==2) {
-				
 				limNuevo=medio;
 			}else {
 				limNuevo=medio+1;
@@ -57,11 +66,47 @@ public class ProcesadorTexto extends RecursiveAction implements ProcesadorArchiv
 		return tamTot;
 	}
 	public void procesar() {
+		try {
+			String dir= "C:\\Users\\manul\\eclipse-workspace\\Laboratorio de programacion\\src\\TPO1ForkJoin\\AlmacenamientoTextos"+"\\Texto"+primera+".zip ";
+			FileOutputStream dirSalida = new FileOutputStream(dir);
+			ZipOutputStream zipOut=new ZipOutputStream(dirSalida);
+			
+			for (int i = primera; i < ultima; i++) {
+				
+				FileInputStream fis= new FileInputStream(textos.get(i));
+				ZipEntry zipEntry= new ZipEntry(textos.get(i).getName());
+				zipOut.putNextEntry(zipEntry);
+				byte[] bytes= new byte[2048];
+				int length;
+				while((length=fis.read(bytes))>=0) {
+					zipOut.write(bytes, 0,length);
+				}
+				fis.close();
+				
+			}
+			zipOut.close();
+			dirSalida.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
 		System.out.println("Procesando lista de textos de "+this.calcularTamLista()+"bytes"+" cantTXT: "+(ultima-primera)+" padre: "+padre);
 		try {
 			Thread.sleep(2000);
 		}catch(InterruptedException e) {}
-		System.out.println("Termino con exito lista de "+this.calcularTamLista()+"bytes");
+		
+		for (int i = primera; i < ultima; i++) {
+			System.out.println("Termino con exito lista de "+this.calcularTamLista()+"bytes"+"Nombre"+ textos.get(i).getName());
+		}
+		if(primera==ultima) {
+			System.out.println("LA QUE TIENE LO MISMO"+ textos.get(primera).getName());
+		}
 		//Aca irian las tareas propias del procesamiento de imagen
 		//Seria la redifinicion del metodo de la clase abstracta
 	}

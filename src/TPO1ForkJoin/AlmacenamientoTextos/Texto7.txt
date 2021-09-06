@@ -1,0 +1,24 @@
+También hemos podido ver otros campos de aplicación donde la incursión del machine learning
+ha traído y puede traer a futuro gran utilidad, algunos sectores son: Educación, Medicina, Finanzas,
+Construcción, Robótica.
+Antes de revisar cada una de las anteriores aplicaciones del machine learning en estas ramas,
+debemos tener muy presente de que este se basa en una sola finalidad la cual es lograr el aprendizaje
+autónomo de las maquinas o sistemas que nos ayudan hoy en día, dicho aprendizaje puede definirse
+en tres tipos de algoritmos:
+• El aprendizaje supervisado: el cual consiste en etiquetar los conjuntos de datos para que los
+patrones puedan ser detectados y puedan ser usados para etiquetar nuevos conjuntos de
+información.
+• El aprendizaje no supervisado: se usará cuando algún conjunto de datos no se encuentre
+etiquetado y por ende la única forma de ser acomodado sea mediante a la revisión de
+similitudes o diferencias que permitan su diferenciación.
+• El aprendizaje de refuerzo: es cuando los datos del sistema no están etiquetados, pero
+después realizar varias acciones y de cierto periodo, el sistema será retroalimentado
+mediante actualizaciones
+3. ALGUNOS CAMPOS DE ACCIÓN DEL MACHINE LEARNING
+3.1 Medicina
+En esta rama la integración de la inteligencia artificial mediante el machine learning, busca la
+eficiencia de los equipos generadores de diagnósticos médicos así se podrán descartar errores
+humanos en el análisis de datos y se reducirían costos en investigación. Algunos avances en esta
+materia ya se están viendo al usar programas como el IBM Watson y los chatbots para que
+interactúe con el paciente realizando una serie de preguntas que le permiten formular una hipótesis
+del posible estado de salud el paciente o para realizar análisis de seguimiento. 

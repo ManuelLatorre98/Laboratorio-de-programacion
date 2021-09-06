@@ -6,10 +6,10 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/manul/Desktop/commons-io-2.11.0-bin/commons-io-2.11.0/commons-io-2.11.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/manul/Desktop/commons-io-2.11.0-bin/commons-io-2.11.0/commons-io-2.11.0-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/Users/manul/Desktop/commons-io-2.11.0-bin/commons-io-2.11.0/commons-io-2.11.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/manul/Desktop/commons-io-2.11.0-bin/commons-io-2.11.0/commons-io-2.11.0-tests.jar"/>
-	<classpathentry kind="lib" path="C:/Users/manul/Desktop/commons-io-2.11.0-bin/commons-io-2.11.0/commons-io-2.11.0-test-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/manul/eclipse/java-2020-06/eclipse/Librerias externas/commons-io-2.11.0-bin/commons-io-2.11.0/commons-io-2.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/manul/eclipse/java-2020-06/eclipse/Librerias externas/commons-io-2.11.0-bin/commons-io-2.11.0/commons-io-2.11.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/manul/eclipse/java-2020-06/eclipse/Librerias externas/commons-io-2.11.0-bin/commons-io-2.11.0/commons-io-2.11.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/manul/eclipse/java-2020-06/eclipse/Librerias externas/commons-io-2.11.0-bin/commons-io-2.11.0/commons-io-2.11.0-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/manul/eclipse/java-2020-06/eclipse/Librerias externas/commons-io-2.11.0-bin/commons-io-2.11.0/commons-io-2.11.0-test-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,0 +1,15 @@
+Otros ejemplos presentados en los últimos años por el machine learning en el área de la salud
+y la medicina, el hallazgo de células cancerígenas en plena etapa de aparición y desarrollo en el
+cuerpo ha permitiendo dar un tratamiento mejor a los pacientes, totalmente enfocado según su tipo
+de cáncer, alargando así los años de vida del enfermo; otro campo en donde se ha visualizado el
+aporte de machine learning es en la predicción de brotes epidémicos.
+En el proceso para la predicción de brotes epidémicos, se han desarrollado herramientas que
+permiten monitorear el comportamiento del brote en todo el mundo están basadas en los datos
+recopilados de satélites, información histórica en la web, las máquinas de vectores de soporte y las
+redes neuronales artificiales. Para predecir brotes de malaria, se tienen en cuenta datos como la
+temperatura, la precipitación mensual promedio, el número total de casos positivos y otros puntos
+de datos.
+Predecir la gravedad de los brotes es particularmente indispensable en los países del tercer
+mundo, que a menudo carecen de infraestructura médica, vías educativas y acceso a tratamientos.
+Por este motivo se creó ProMED-mail que es un programa de informes basado en Internet para
+monitorear enfermedades emergentes y proporcionar informes de brotes en tiempo real 

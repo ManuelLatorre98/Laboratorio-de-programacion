@@ -24,7 +24,7 @@ public class Main {
 		Pedco pedco= new Pedco();
 		pedco.procesar(procesadorTexto);
 		procesadorTexto.join();
-		vaciarDir();
+		//vaciarDir();
 		
 	}
 	
@@ -51,10 +51,8 @@ public class Main {
 	}
 
 	public static List<File> listarArchivos() {
-		File destDir= new File("C:\\Users\\manul\\eclipse-workspace\\Laboratorio de programacion\\src\\TPO1ForkJoin\\AlmacenamientoTextos");
-		File [] listaArchivos=destDir.listFiles();//Esto me devuelve un arreglo y trabajamos con arrayList
-		
-	
+		File almTxt= new File("C:\\Users\\manul\\eclipse-workspace\\Laboratorio de programacion\\src\\TPO1ForkJoin\\AlmacenamientoTextos");
+		File [] listaArchivos=almTxt.listFiles();//Esto me devuelve un arreglo y trabajamos con arrayList
 		List <File> archivos= new ArrayList<File>();//Pasamos los archivos al arrayList que necesitamos
 		for (int i = 0; i < listaArchivos.length; i++) {
 			archivos.add(listaArchivos[i]);
