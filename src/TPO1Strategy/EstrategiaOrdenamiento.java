@@ -1,6 +1,5 @@
 package TPO1Strategy;
 
-interface EstrategiaOrdenamiento {
-	
-	public Comparable[] ordenar(Comparable []estructura);
+public interface EstrategiaOrdenamiento {
+	public int[] ordenar(int []estructura);
 }

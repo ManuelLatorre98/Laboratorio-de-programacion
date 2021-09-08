@@ -1,13 +1,9 @@
 package TPO1ForkJoin;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ForkJoinTask;
@@ -18,14 +14,14 @@ import java.util.zip.ZipOutputStream;
 import org.apache.commons.io.FileUtils;
 
 
-public class ProcesadorTexto extends RecursiveAction implements ProcesadorArchivos{
+public class ProcesadorTexto extends RecursiveAction {
 	private List<File>textos;
 	private int primera;
 	private int ultima;
 	private int tamMaxArch=3000;//Tamaño maximo de cada archivo de texto en bytes
 	
 	int padre;
-	public ProcesadorTexto(List<File>textos, int primera, int ultima, int padre) {
+	public ProcesadorTexto(List<File>textos, int primera, int ultima, int padre) { //Parametro padre esta para debugear y dibujar el arbol de tareas que se genera
 		this.textos=textos;
 		this.primera=primera;
 		this.ultima=ultima;
@@ -34,22 +30,16 @@ public class ProcesadorTexto extends RecursiveAction implements ProcesadorArchiv
 	
 	@Override
 	protected void compute() {
-		int limNuevo;
+		//System.out.println("Lista de tamaño "+this.calcularTamLista()+" con elementos: "+textos.subList(primera, ultima).toString());
+		
 		if(this.calcularTamLista()<tamMaxArch) {//Si la lista de textos a procesar tiene un peso menor a tamMaxArch bytes
 			this.procesar();
 		}else {
 			int medio=(ultima+primera)/2;
-			if(ultima-primera==2) {
-				limNuevo=medio;
-			}else {
-				limNuevo=medio+1;
-			}
-			
-			System.out.println("LA LISTA ES MUY PESADA ("+this.calcularTamLista()+") LA DIVIDO EN 2. Listas de texto pendientes por procesar: "+getQueuedTaskCount()+" padre: "+padre); //Me indica cuantas tareas pendientes hay en la cola
-			ProcesadorTexto p1= new ProcesadorTexto(textos, primera, limNuevo , this.calcularTamLista());//Agarro la mitad de las imagenes y se la asigno a una nueva tarea
-			ProcesadorTexto p2= new ProcesadorTexto(textos, limNuevo, ultima, this.calcularTamLista());//Agarro la otra mitad y se la asigno a otra tarea
-			ForkJoinTask.invokeAll(p1,p2);
-			//invokeAll(p1,p2);//Meto las 2 nuevas tareas en la pool
+			System.out.println("LA LISTA ES MUY PESADA ("+this.calcularTamLista()+") LA DIVIDO EN 2. Listas de texto pendientes por procesar: "+getQueuedTaskCount()+" padre: "+padre+" Division hecha por: "+ForkJoinTask.getPool()); //Me indica cuantas tareas pendientes hay en la cola
+			ProcesadorTexto p1= new ProcesadorTexto(textos, primera, medio , this.calcularTamLista());//Agarro la mitad de las imagenes y se la asigno a una nueva tarea
+			ProcesadorTexto p2= new ProcesadorTexto(textos, medio, ultima, this.calcularTamLista());//Agarro la otra mitad y se la asigno a otra tarea
+			ForkJoinTask.invokeAll(p1,p2);//Meto las 2 nuevas tareas en la pool
 			
 			
 		}
@@ -96,19 +86,13 @@ public class ProcesadorTexto extends RecursiveAction implements ProcesadorArchiv
 		
 		
 		
-		System.out.println("Procesando lista de textos de "+this.calcularTamLista()+"bytes"+" cantTXT: "+(ultima-primera)+" padre: "+padre);
+		System.out.println("Procesando lista de textos de "+this.calcularTamLista()+"bytes."+" padre: "+padre+" Tareas pendientes del hilo:"+ForkJoinTask.getQueuedTaskCount());
 		try {
 			Thread.sleep(2000);
 		}catch(InterruptedException e) {}
+		System.out.println("Termino con exito lista de "+this.calcularTamLista()+"bytes. Con "+(ultima-primera)+" archivos dentro"+ "\n Hecho por: "+Thread.currentThread().getName() +"\nInfo de la pool del hilo: "+ForkJoinTask.getPool()+"\n____________________");
+		//Agarro la pool de la tarea actual, steals muestra la cantidad de tareas que fueron "robadas" por otros hilos
 		
-		for (int i = primera; i < ultima; i++) {
-			System.out.println("Termino con exito lista de "+this.calcularTamLista()+"bytes"+"Nombre"+ textos.get(i).getName());
-		}
-		if(primera==ultima) {
-			System.out.println("LA QUE TIENE LO MISMO"+ textos.get(primera).getName());
-		}
-		//Aca irian las tareas propias del procesamiento de imagen
-		//Seria la redifinicion del metodo de la clase abstracta
 	}
 
 }

@@ -1,33 +1,97 @@
 package TPO1ForkJoin;
 
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import org.apache.commons.io.FileUtils;
 
-public class Main {
+public class Main extends JFrame implements ActionListener{
+	public Main() { //Constructor de la clase main
+		setTitle("Fork Join Recursive Action");
+		setSize(450,135);
+		
+		//Declaro los botones
+		JButton borrar= new JButton("Borrar textos almacenados");
+		JButton forkJoin= new JButton("Iniciar ForkJoin"); 
+		JPanel panel= new JPanel();
+		
+		
+		//Seteo cosas de los botones
+		borrar.setPreferredSize(new Dimension(this.getWidth(),40));
+		borrar.setFont(new Font("Arial", Font.BOLD, 20));
+		forkJoin.setPreferredSize(new Dimension(this.getWidth(),40));
+		forkJoin.setFont(new Font("Arial", Font.BOLD, 20));
+		
+		//Agrego los botones al panel
+		panel.add(borrar);
+		panel.add(forkJoin);
+		
+		
+		this.getContentPane().add(panel);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		//Eventos boton Borrar
+		borrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vaciarDir();
+			}
+		});
+		
+		//Eventos boton ForkJoin
+		forkJoin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ejecutar();
+			}
+		});
+		
+		//Termina ejecucion cuando cierro panel
+		Component p = panel;
+		  while ( p != null && ! (p instanceof Window))
+		    p = p.getParent();
+
+		   
+		   ((Window) p ).addWindowListener(new java.awt.event.WindowAdapter() {
+			    @Override
+			    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+			    	System.exit(1);
+			    }
+			});
+		   
+		   
+	}
+	
+	
 	public static void main(String[] args) {
+		new Main();
+	}
+	
+	public static void ejecutar() {
 		Scanner sc= new Scanner(System.in);
-		GeneradorListaTextos generador= new GeneradorListaTextos(); //CAMBIAR A TEXTO
 		List <File>archivos;
 		
 		ingresoCarpeta(sc);
 		archivos=listarArchivos();
-		
-		ProcesadorTexto procesadorTexto= new ProcesadorTexto(archivos, 1, archivos.size(), 0); //Simulamos que utilizamos la estrategia procesadorTexto
+
 		Pedco pedco= new Pedco();
-		pedco.procesar(procesadorTexto);
-		procesadorTexto.join();
-		//vaciarDir();
+		pedco.procesar(archivos);
 		
+		//vaciarDir();
 	}
-	
 	public static void ingresoCarpeta(Scanner sc) {
 		System.out.println("Ingrese direccion de la carpeta con archivos");
 		
@@ -67,5 +131,9 @@ public class Main {
 			System.out.println("vaciar!");
 			FileUtils.cleanDirectory(destDir);
 		}catch(IOException e) {}
+	}
+	 
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("fdsfds");
 	}
 }
