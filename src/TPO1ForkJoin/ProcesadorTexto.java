@@ -46,15 +46,14 @@ public class ProcesadorTexto extends RecursiveAction {
 	}
 	private int calcularTamLista() {
 		int tamTot=0;
-		System.out.println();
 		for (int i = primera; i < ultima; i++) {
-			
 			tamTot+= FileUtils.sizeOf(textos.get(i));
 		}
 		
 		
 		return tamTot;
 	}
+	
 	public void procesar() {
 		try {
 			String dir= "C:\\Users\\manul\\eclipse-workspace\\Laboratorio de programacion\\src\\TPO1ForkJoin\\AlmacenamientoTextos"+"\\Texto"+primera+".zip ";
@@ -86,13 +85,13 @@ public class ProcesadorTexto extends RecursiveAction {
 		
 		
 		
-		System.out.println("Procesando lista de textos de "+this.calcularTamLista()+"bytes."+" padre: "+padre+" Tareas pendientes del hilo:"+ForkJoinTask.getQueuedTaskCount());
+		System.out.println("Procesando lista de textos de "+this.calcularTamLista()+"bytes."+" padre: "+padre+" Tareas pendientes del hilo:"+ForkJoinTask.getQueuedTaskCount()+"\n");
+		
 		try {
 			Thread.sleep(2000);
 		}catch(InterruptedException e) {}
-		System.out.println("Termino con exito lista de "+this.calcularTamLista()+"bytes. Con "+(ultima-primera)+" archivos dentro"+ "\n Hecho por: "+Thread.currentThread().getName() +"\nInfo de la pool del hilo: "+ForkJoinTask.getPool()+"\n____________________");
+		System.out.println("Termino con exito lista de "+this.calcularTamLista()+"bytes. Con "+(ultima-primera)+" archivos dentro"+ "\nHecho por: "+Thread.currentThread().getName() +"\nInfo de la pool del hilo: "+ForkJoinTask.getPool()+"\n____________________");
 		//Agarro la pool de la tarea actual, steals muestra la cantidad de tareas que fueron "robadas" por otros hilos
 		
 	}
-
 }

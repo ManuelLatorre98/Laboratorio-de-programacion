@@ -167,10 +167,12 @@ public class Main extends JFrame {
 		int cantElem=10;
 		int []estructura= new int[cantElem];
 		int []resultado;
-			
-			estDes.setForeground(Color.black);
-			estDes.setText(generarEst(estructura,cantElem));
-			System.out.println("ESTRUCTURA: "+estDes.getText());
+		
+		estDes.setForeground(Color.black);
+		estDes.setText(generarEst(estructura,cantElem));
+		System.out.println("ESTRUCTURA: "+estDes.getText());
+		
+		
 			switch(select){
 			case 1://Algoritmo burbuja: O(n^2)
 				System.out.print("ORDENAMIENTO MENOR A MAYOR: Orden de ejecucion elegido: O(n^2). Resultado: ");
@@ -200,20 +202,20 @@ public class Main extends JFrame {
 			
 			
 			resultado= ordenador.ejecutarEstrategia(estructura);
+			
+			
+			
 			String txt= "[";	
 			for (int i = 0; i < resultado.length; i++) {
 				txt+=resultado[i];
 				if(i+1<resultado.length) {
 					txt+=",";
 				}
-				
 			}
 			txt+="]\n";
 			System.out.println(txt);
 			txtFieldResult.setForeground(Color.black);
 			txtFieldResult.setText(txt);
-			
-		
 	}
 	
 
