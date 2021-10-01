@@ -11,9 +11,6 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Hashtable;
-import java.util.Random;
-import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -24,8 +21,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class Main extends JFrame {
-	public Main() { //Constructor de la clase main
+public class InterfazGrafica extends JFrame implements ActionListener {
+	private static Strategy strategy = new Strategy();
+	private InterfazGrafica(){
 		setTitle("Patron Strategy");
 		setSize(900,380);
 		
@@ -72,6 +70,7 @@ public class Main extends JFrame {
 		estDes.setEditable(false);
 		
 		
+		
 		JTextField resultado= new JTextField("Estructura ordenada");
 		resultado.setPreferredSize(new Dimension(320,40));
 		resultado.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -107,36 +106,36 @@ public class Main extends JFrame {
 		//Eventos botones
 		bot1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ejecutar(1,estDes,resultado);
+				ejecutarEstrategia(1,estDes,resultado);
 			}
 		});
 		
 		bot2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ejecutar(2,estDes,resultado);
+				ejecutarEstrategia(2,estDes,resultado);
 			}
 		});
 		
 		bot3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ejecutar(3,estDes,resultado);
+				ejecutarEstrategia(3,estDes,resultado);
 				
 			}
 		});
 		
 		bot4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ejecutar(4,estDes,resultado);
+				ejecutarEstrategia(4,estDes,resultado);
 			}
 		});
 		bot5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ejecutar(5,estDes,resultado);
+				ejecutarEstrategia(5,estDes,resultado);
 			}
 		});
 		bot6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ejecutar(6,estDes,resultado);
+				ejecutarEstrategia(6,estDes,resultado);
 			}
 		});
 		
@@ -153,110 +152,25 @@ public class Main extends JFrame {
 			    }
 			});
 		   
-		   
 	}
 	
-	
+	private void ejecutarEstrategia(int select, JTextField estDes, JTextField txtFieldResult) {
+		estDes.setForeground(Color.black);//Seteo el texto de la estructura desordenada a negro
+		txtFieldResult.setForeground(Color.black);//Seteo el texto de la estructura ordenada a negro
+		String [] arrayEst=strategy.ejecutar(select);
+		estDes.setText(arrayEst[0]);
+		txtFieldResult.setText(arrayEst[1]);
+		
+	}
 	
 	public static void main(String[] args) {
-		new Main();	
+		strategy= new Strategy();
+		new InterfazGrafica();
 	}
 	
-	public static void ejecutar(int select, JTextField estDes, JTextField txtFieldResult) {
-		ContextOrdenador ordenador= new ContextOrdenador(null);
-		int cantElem=10;
-		int []estructura= new int[cantElem];
-		int []resultado;
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
 		
-		estDes.setForeground(Color.black);
-		estDes.setText(generarEst(estructura,cantElem));
-		System.out.println("ESTRUCTURA: "+estDes.getText());
-		
-		
-			switch(select){
-			case 1://Algoritmo burbuja: O(n^2)
-				System.out.print("ORDENAMIENTO MENOR A MAYOR: Orden de ejecucion elegido: O(n^2). Resultado: ");
-				ordenador.setStrategy(new BurbujaMenorMayor());
-				break;
-			case 2://Algoritmo bucket: O(n)
-				System.out.print("ORDENAMIENTO MENOR A MAYOR: Orden de ejecucion elegido: O(n). Resultado: ");
-				ordenador.setStrategy(new BucketSortMenorMayor());
-				break;
-			case 3://Algoritmo AB: O(n log n)
-				System.out.print("ORDENAMIENTO MENOR A MAYOR: Orden de ejecucion elegido: O(n log n). Resultado: ");
-				ordenador.setStrategy(new ArbolBinarioMenorMayor());
-				break;
-			case 4://Algoritmo burbuja: O(n^2)
-				System.out.print("ORDENAMIENTO MAYOR A MENOR: Orden de ejecucion elegido: O(n^2). Resultado: ");
-				ordenador.setStrategy(new BurbujaMayorMenor());
-				break;
-			case 5://Algoritmo bucket: O(n)
-				System.out.print("ORDENAMIENTO MAYOR A MENOR: Orden de ejecucion elegido: O(n). Resultado: ");
-				ordenador.setStrategy(new BucketSortMayorMenor());
-				break;
-			case 6://Algoritmo AB: O(n log n)
-				System.out.print("ORDENAMIENTO MAYOR A MENOR: Orden de ejecucion elegido: O(n log n). Resultado: ");
-				ordenador.setStrategy(new ArbolBinarioMayorMenor());
-				break;
-			}
-			
-			
-			resultado= ordenador.ejecutarEstrategia(estructura);
-			
-			
-			
-			String txt= "[";	
-			for (int i = 0; i < resultado.length; i++) {
-				txt+=resultado[i];
-				if(i+1<resultado.length) {
-					txt+=",";
-				}
-			}
-			txt+="]\n";
-			System.out.println(txt);
-			txtFieldResult.setForeground(Color.black);
-			txtFieldResult.setText(txt);
-	}
-	
-
-	
-	public static int menu(Scanner sc) {
-		System.out.println("Seleccione una opcion: ");
-		System.out.println("1. Ordenar de menor a mayor con orden: O(n^2) (Burbuja)");
-		System.out.println("2. Ordenar de menor a mayor con orden: O(n) (BucketSort)");
-		System.out.println("3. Ordenar de menor a mayor con orden: O(n log n) (Arbol Binario)");
-		System.out.println("4. Ordenar de mayor a menor con orden: O(n^2) (Burbuja)");
-		System.out.println("5. Ordenar de mayor a menor con orden: O(n) (BucketSort)");
-		System.out.println("6. Ordenar de mayor a menor con orden: O(n log n) (Arbol Binario)");
-		return sc.nextInt();
-	}
-	
-	public static String generarEst(int[]estructura, int cantElem) {
-		Random generador = new Random();//Genero una lista con 5 numeros random que no se repiten
-        int max=50;
-        int min=1;
-        int contNum=0;
-        int num;
-  
-        Hashtable hash= new Hashtable();
-        
-        int indEst=0;
-        String stringEst="[";
-        
-        while(contNum<cantElem) {
-            num=(generador.nextInt(max - min) + min);
-            if(hash.get(num)==null) {
-            	estructura[indEst++]=num;
-            	stringEst+=num;
-            	if(contNum+1<cantElem) {
-					stringEst+=",";
-				}
-                hash.put(num, num);
-                contNum++;
-            }
-        }
-        stringEst+="]";
-        
-        return stringEst;
 	}
 }
