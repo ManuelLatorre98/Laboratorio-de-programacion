@@ -1,13 +1,10 @@
 package TPO1ForkJoin;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JFrame;
 import org.apache.commons.io.FileUtils;
-public class ForkJoin extends JFrame implements ActionListener{	
+public class ForkJoin{	
 	public void ejecutar() {
 		List <File>archivos;
 		archivos=listarArchivos();
@@ -34,9 +31,5 @@ public class ForkJoin extends JFrame implements ActionListener{
 		}catch(IOException e) {}
 	}
 	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-	}
 
 }

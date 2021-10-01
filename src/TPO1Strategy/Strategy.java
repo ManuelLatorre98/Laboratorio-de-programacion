@@ -35,30 +35,37 @@ public class Strategy{
 		arrayEstr[0]=estructuraDesordenada;//Lo meto en el array de estructuras para retornarlo a la interfaz y que lo imprima ella
 		//Los SysOut los dejo para debugear en caso que falle algo de la interfaz o si se prefiere ver por consola
 		System.out.println("ESTRUCTURA: "+estructuraDesordenada);
+		BurbujaMenorMayor burbujaMenorMayor= new BurbujaMenorMayor();
+		BucketSortMenorMayor bucketSortMenorMayor=new BucketSortMenorMayor();
+		ArbolBinarioMenorMayor arbolBinarioMenorMayor=new ArbolBinarioMenorMayor();
+		BurbujaMayorMenor burbujaMayorMenor = new BurbujaMayorMenor();
+		BucketSortMayorMenor bucketSortMayorMenor= new BucketSortMayorMenor();
+		ArbolBinarioMayorMenor ArbolBinarioMayorMenor= new ArbolBinarioMayorMenor();
+		
 			switch(select){
 			case 1://Algoritmo burbuja: O(n^2)
 				System.out.print("ORDENAMIENTO MENOR A MAYOR: Orden de ejecucion elegido: O(n^2). Resultado: ");
-				ordenador.setStrategy(new BurbujaMenorMayor());
+				ordenador.setStrategy(burbujaMenorMayor);
 				break;
 			case 2://Algoritmo bucket: O(n)
 				System.out.print("ORDENAMIENTO MENOR A MAYOR: Orden de ejecucion elegido: O(n). Resultado: ");
-				ordenador.setStrategy(new BucketSortMenorMayor());
+				ordenador.setStrategy(bucketSortMenorMayor);
 				break;
 			case 3://Algoritmo AB: O(n log n)
 				System.out.print("ORDENAMIENTO MENOR A MAYOR: Orden de ejecucion elegido: O(n log n). Resultado: ");
-				ordenador.setStrategy(new ArbolBinarioMenorMayor());
+				ordenador.setStrategy(arbolBinarioMenorMayor);
 				break;
 			case 4://Algoritmo burbuja: O(n^2)
 				System.out.print("ORDENAMIENTO MAYOR A MENOR: Orden de ejecucion elegido: O(n^2). Resultado: ");
-				ordenador.setStrategy(new BurbujaMayorMenor());
+				ordenador.setStrategy(burbujaMayorMenor);
 				break;
 			case 5://Algoritmo bucket: O(n)
 				System.out.print("ORDENAMIENTO MAYOR A MENOR: Orden de ejecucion elegido: O(n). Resultado: ");
-				ordenador.setStrategy(new BucketSortMayorMenor());
+				ordenador.setStrategy(bucketSortMayorMenor);
 				break;
 			case 6://Algoritmo AB: O(n log n)
 				System.out.print("ORDENAMIENTO MAYOR A MENOR: Orden de ejecucion elegido: O(n log n). Resultado: ");
-				ordenador.setStrategy(new ArbolBinarioMayorMenor());
+				ordenador.setStrategy(ArbolBinarioMayorMenor);
 				break;
 			}
 			resultado= ordenador.ejecutarEstrategia(estructura);

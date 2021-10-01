@@ -27,14 +27,19 @@ public class InterfazGrafica extends JFrame implements ActionListener{
 		
 		
 		//Seteo cosas de los botones
+		iniForkJoin.setPreferredSize(new Dimension(this.getWidth(),40));
+		iniForkJoin.setFont(new Font("Arial", Font.BOLD, 20));
+		setPreferredSize(new Dimension(this.getWidth(),40));
+		setFont(new Font("Arial", Font.BOLD, 20));
+		
+
 		borrar.setPreferredSize(new Dimension(this.getWidth(),40));
 		borrar.setFont(new Font("Arial", Font.BOLD, 20));
-		forkJoin.setPreferredSize(new Dimension(this.getWidth(),40));
-		forkJoin.setFont(new Font("Arial", Font.BOLD, 20));
+		
 		
 		//Agrego los botones al panel
 		panel.add(borrar);
-		panel.add(forkJoin);
+		panel.add(iniForkJoin);
 		
 		
 		this.getContentPane().add(panel);
