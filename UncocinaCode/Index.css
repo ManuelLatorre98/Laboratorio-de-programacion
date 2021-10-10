@@ -21,11 +21,11 @@ body{
     background: url('Uncocina.png') no-repeat; 
 }
 
+/*navBar AND BUTTONS*/
 .navbar{
     list-style: none;
 }
 
-/*MENU AND BUTTONS*/
 .menu{
     padding: 0;
     margin: 0;
@@ -62,10 +62,13 @@ body{
     /*border: 1px solid red;*/
 }
 
-#botinicio >a {
+#botinicio{
     max-height: 150px;
+}
+#botinicio >a {
     cursor: pointer;
 }
+
 .menu >li:hover >a{
     background-color: white;
     color: black;
