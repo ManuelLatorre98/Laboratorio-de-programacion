@@ -9,15 +9,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a4092194f5.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="header">
-        <div class="logo"> </div>
-        <div class="boton"><span>Inicio</span></div>
-        <div class="boton"><span>Recetas</span></div>
-        <div class="boton"><span>Consejos</span></div>
+        <a id="linkLogo"href="#"></a>
+        <nav class="navbar">
+            <ul class="menu">
+                <li id="botinicio"><a href="#">Inicio</a></li>
+                <li><a href="#">Recetas</a>
+                    <ul class="submenu">
+                        <li><a href="#"> <i class="fas fa-drumstick-bite" id="meat"></i>Platos con carne</a></li>
+                        <li><a href="#"><i class="fas fa-carrot" id="carrot"></i>Platos vegetarianos</a></li>
+                        <li><a href="#"><i class="fas fa-ice-cream" id="icecream"></i>Postres</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Consejos</a>
+                    <ul class="submenu">
+                        <li><a href="#"><i class="fas fa-book libro" ></i>Cosejo1</a></li>
+                        <li><a href="#"><i class="fas fa-book libro" ></i>Cosejo1</a></li>
+                        <li><a href="#"><i class="fas fa-book libro" ></i>Cosejo1</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
         <div class="buscador">
-            <input type="search" name="searchBar" placeholder="Buscar receta">
+            <input type="search" name="searchBar" placeholder="&#xF002;    Buscar receta">
         </div>
     </div>
 </body>
