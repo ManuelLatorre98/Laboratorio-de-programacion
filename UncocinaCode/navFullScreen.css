@@ -1,6 +1,9 @@
 body{
     background-color: #f0ece7;
 }
+html {/*Delete flash of hyperlinks when is clicked in mobile*/
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
 .header{
     /*border: 1px solid red;*/
     position: absolute;
@@ -10,15 +13,18 @@ body{
     height: 150px;
     width: 100%;
     background-color: #292525;
+    
+    
 }
 #linkLogo{/*href of logo reference*/
     -webkit-user-drag: none;/*Delete drag link of logo*/
     margin-left: 40px;
     margin-right: 50px;
     margin-top: 8px;
-    min-width: 180px;
+    width: 180px;
     height: 142px;
     background: url('Uncocina.png') no-repeat; 
+    
 }
 
 /*navBar AND BUTTONS*/

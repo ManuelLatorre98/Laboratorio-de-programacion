@@ -22,6 +22,8 @@
     #linkLogo{/*href of logo reference*/
         margin-top: 4px;
         background: url('UncocinaResp.png') no-repeat; 
+        height: 66px;
+        width: 80px;
     }
     .navbar{
         position: absolute;
