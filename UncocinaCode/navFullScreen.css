@@ -146,7 +146,7 @@ body{
 /*SEARCHBAR*/
 
 .buscador {
-    display: flex;
+    display: block;
     margin-top: 54px;
     margin-left: 70px;
     height: 70px;
@@ -179,4 +179,8 @@ body{
 
 .buscador input:focus{
     outline: none;
+}
+
+.botMenuResp{
+    display: none;
 }
