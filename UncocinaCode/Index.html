@@ -16,6 +16,8 @@
     <div class="header">
         <a id="linkLogo"href="#"></a>
         <nav class="navbar">
+            <input type="checkbox" class="checkBoxBot" id="botSubMenu"><!--For simulate button press-->
+            <label for="botSubMenu" class="labBotMenuResp" id="labelBotSubMenu1"><i class="fas fa-bars"></i></label> <!--for style of button--> 
             <ul class="menu">
                 <li id="botinicio"><a href="#">Inicio</a></li>
                 <li><a href="#">Recetas</a>
@@ -25,20 +27,21 @@
                         <li><a href="#"><i class="fas fa-ice-cream" id="icecream"></i>Postres</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Consejos</a>
+                <li><a href="#">Consejos</a>          
                     <ul class="submenu">
                         <li><a href="#"><i class="fas fa-book libro" ></i>Cosejo1</a></li>
                         <li><a href="#"><i class="fas fa-book libro" ></i>Cosejo1</a></li>
                         <li><a href="#"><i class="fas fa-book libro" ></i>Cosejo1</a></li>
                     </ul>
+                    
                 </li>
-
             </ul>
+            <div class="buscador">
+                <input type="search" name="searchBar" placeholder="&#xF002;    Buscar receta">
+            </div>
         </nav>
-        <div class="buscador">
-            <input type="search" name="searchBar" placeholder="&#xF002;    Buscar receta">
-        </div>
-        <div class="botMenuResp"><i class="fas fa-bars"></i></div>
+        
+       
     </div>
 </body>
 </html>

@@ -1,9 +1,9 @@
 body{
     background-color: #f0ece7;
 }
-html {/*Delete flash of hyperlinks when is clicked in mobile*/
+/*html {/*Delete flash of hyperlinks when is clicked in mobile
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-  }
+  }*/
 .header{
     /*border: 1px solid red;*/
     position: absolute;
@@ -30,6 +30,8 @@ html {/*Delete flash of hyperlinks when is clicked in mobile*/
 /*navBar AND BUTTONS*/
 .navbar{
     list-style: none;
+    display: flex;
+    width: 100%;
 }
 
 .menu{
@@ -187,6 +189,10 @@ html {/*Delete flash of hyperlinks when is clicked in mobile*/
     outline: none;
 }
 
-.botMenuResp{
-    display: none;
+.checkBoxBot{
+    display: none; /*Hide the checkbox used for button*/
+}
+
+.labBotMenuResp{
+    display: none;/*Hide label of checkbox used for button*/
 }
