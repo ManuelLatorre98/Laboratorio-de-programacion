@@ -2,6 +2,11 @@
     .buscador{/*Hide searchbar*/
         margin-left: 5px;
     }
+    .cat-title{
+        
+        text-decoration-thickness: 2px;
+        text-underline-offset: 1px;
+    }
 }
 @media screen and (max-width: 1525px) {
     
@@ -11,6 +16,10 @@
     .navbar{
         width: 300px;
         display: block;
+        position: absolute;
+        right: 0px;
+        top: 124px;
+        z-index: 1;
     }
 
     .labBotMenuResp{
@@ -34,19 +43,14 @@
 
     #linkLogo{/*href of logo reference*/
         margin-top: 4px;
-        background: url('UncocinaResp.png') no-repeat; 
+        background: url('Images/UncocinaResp.png') no-repeat; 
         height: 66px;
         width: 80px;
     }
-    .navbar{
-        position: absolute;
-        right: 0px;
-        top: 124px;
-    }
+  
     .menu >li{ /*Buttons*/
-        display:block;
         width: 300px;
-        max-height: 205px;
+        max-height: none;
         background-color: #2c2a2a;
     }
     #botinicio{
@@ -58,12 +62,12 @@
         top: 0;
         padding-top: 12px;
         padding-bottom: 12px;
-
     }
     .submenu{
         width: 100%;
         background-color: #2c2a2a;
         border-bottom: 1px solid #39d4c8;
+        position: inherit; /*was absolute, i modify this for adjust the flexbox of menu>li with the size of submenu*/
     }
     .submenu > li > a{
         font-size: 12pt;
@@ -73,7 +77,6 @@
     }
 
     .menu > li:hover .submenu{ 
-
         -moz-box-shadow:none;
         -webkit-box-shadow: none;
         box-shadow:none;
@@ -81,7 +84,6 @@
 
     .submenu>li>a>i{
         color: gainsboro;
-
     }
 
     .buscador{

@@ -1,0 +1,159 @@
+body{
+    margin: 0;
+}
+body::-webkit-scrollbar{ /*modifico el tamaño del scrollbar*/
+    width: 0.50rem;
+    height: 0.5rem;
+}
+body::-webkit-scrollbar-track{ /*modifico el fondo del scrollbar*/
+    background: black;
+
+}
+body::-webkit-scrollbar-thumb{ /*modifico la barra del scrollbar*/
+    background-color: #39d4c8;
+}
+.mainPag{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    top: 0;
+    left: 0;
+    z-index: -1;/*this is for not cover the menu*/
+}
+.cat-title{
+    margin-top: 4vw;
+    margin-bottom: 2vw;
+    font-size:2.6vw;
+    font-family: 'Volkhov', serif;
+    font-weight: 100;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 1px;
+}
+
+.row{
+    margin-left: auto;
+    margin-right: auto;
+    
+    min-height: 358px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    margin-bottom: 5%;
+    position: relative;
+    column-gap: 18px;
+}
+
+.img-row{
+    position: relative;
+    /*margin-right: 18px;*/
+    max-height: 358px;
+    max-width: 358px;
+    min-width: 358px;
+    margin-bottom: 18px;
+}
+
+
+.img-row>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    cursor: pointer;
+}
+
+.href-receta{
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+}
+.res_description{
+    position: absolute;
+    bottom: 0;
+    height: 25%;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    font-size: 28px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    text-align: center;  
+    display: flex;
+    flex-direction: column;
+}
+.res_name{
+    margin-top: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    
+}
+
+.masrecetas_button{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #39d4c8;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 10vw;
+    height: 1.82vw;
+    position:relative;
+}
+.masrecetas_button>span{
+    position: absolute;
+    font-size: 1.35vw;
+    font-family: 'Open Sans', sans-serif;
+    font-weight:bold;
+    text-align: center;   
+    color: black;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+
+
+}
+.masrecetas_button>a{
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.recetasinicio{
+    margin: 0;
+    height: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.divide-line{
+    margin-top: 4vw;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid #39d4c8;
+}
+
+
+
+
+
+
+
