@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="navFullScreen.css">
+    <link rel="stylesheet" href="navResp.css">
+    <link rel="stylesheet" href="mainPag.css">    
+    <link rel="stylesheet" href="mainPagResp.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="recipe.css">
+    <title>Unocina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a4092194f5.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov&display=swap" rel="stylesheet">
+    
+
+  </head>
+<body>
+    <div class="mainPag">
+        <!--HEADER-->
+        <div class="header">
+            <a id="linkLogo"href="#"></a>
+            <nav class="navbar">
+                <input type="checkbox" class="checkBoxBot" id="botSubMenu"><!--For simulate button press-->
+                <label for="botSubMenu" class="labBotMenuResp" id="labelBotSubMenu1"><i class="fas fa-bars"></i></label> <!--for style of button--> 
+                <ul class="menu">
+                    <li id="botinicio"><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Recetas</a>
+                        <ul class="submenu">
+                            <li><a href="categoryPag.html"> <i class="fas fa-drumstick-bite" id="meat"></i>Platos con carne</a></li>
+                            <li><a href="categoryPag.html"><i class="fas fa-carrot" id="carrot"></i>Platos vegetarianos</a></li>
+                            <li><a href="categoryPag.html"><i class="fas fa-ice-cream" id="icecream"></i>Postres</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Consejos</a>          
+                        <ul class="submenu">
+                            <li><a href="#"><i class="fas fa-book libro" ></i>Consejos de cocina</a></li>
+                            <li><a href="#"><i class="fas fa-book libro" ></i>Consejos de nutricion</a></li>
+                            
+                        </ul>
+                        
+                    </li>
+                </ul>
+                <div class="buscador">
+                    <input type="search" name="searchBar" placeholder="&#xF002;    Buscar receta">
+                </div>
+            </nav>
+        </div>
+
+        <!--RECIPE-->
+    <div class = "recipe">
+        <h1 class="title-recipe">Hamburguesa</h1>  
+        <div class = "img-recipe">
+            <img src="Images\hamburguesaG.jpg"/>
+        </div>
+        <div class="recipe-info">
+            <div class="properties">
+            <span class="property diners" ::before > 4 comensales</span>
+            <span class="property duration" ::before>30m</span>
+            <span class="property category" ::before>Recetas con Carne</span>
+            <span class="property difficulty" ::before>Dificultad baja</span>
+            </div>
+            <div class="properties inline">
+            <span class="strong">Características adicionales:</span>
+            ¡Las hamburguesas más ricas que vas a probar!
+            </div>
+            <div class="titulo titulo--h3">Ingredientes:</div>
+            <div class="ingredientes ">
+            <ul class="padding-left-0 double-column">
+            <li class="ingrediente">
+                <input type="checkbox" id="ingrediente-0">
+                <label for="ingrediente-0">
+                500 gramos de carne molida de res </label>
+            </li>
+            <li class="ingrediente">
+                <input type="checkbox" id="ingrediente-1">
+                <label for="ingrediente-1">
+                2 dientes de ajo finamente picados
+                </label>
+            </li>
+            <li class="ingrediente">
+                <input type="checkbox" id="ingrediente-2">
+                <label for="ingrediente-2">
+                1/2 cebolla finamente picadas </label>
+            </li>
+            <li class="ingrediente">
+                <input type="checkbox" id="ingrediente-3">
+                <label for="ingrediente-3">
+                2 huevos
+                </label>
+            </li>
+            <li class="ingrediente">
+                <input type="checkbox" id="ingrediente-4">
+                <label for="ingrediente-4">
+                3 cucharaditas de sal </label>
+            </li>
+            <li class="ingrediente">
+                <input type="checkbox" id="ingrediente-5">
+                <label for="ingrediente-5">
+                2 cucharaditas de pimienta </label>
+            </li>
+            <li class="ingrediente">
+                <input type="checkbox" id="ingrediente-6">
+                <label for="ingrediente-6">
+                1/2 taza de leche </label>
+            </li>
+            <li class="ingrediente">
+                <input type="checkbox" id="ingrediente-7">
+                <label for="ingrediente-7">
+                3 cucharadas de pan rallado </label>
+            </li>
+            <li class="ingrediente">
+                <input type="checkbox" id="ingrediente-8">
+                <label for="ingrediente-8">
+                3 cucharadas de aceite vegetal </label>
+            </li>
+            </ul>
+            </div>
+            </div>
+            <div class="titulo titulo--h3">Procedimiento:</div>
+               <div class= "procedimiento">
+                <ol>
+                    <li>En un bowl agrega la carne, los huevos, el ajo, el perejil, la cebolla, la sal y la pimienta; mezcla hasta que todo quede bien incorporado.
+                    </li>
+                    <li>Añade el pan rallado y la leche; mezcla hasta tener una consistencia suave y espesa.
+                    </li>
+                    <li>Coloca plástico de cocina (film) sobre una tabla, cubre tus manos con aceite vegetal, agarra una bola de carne y con tus manos dale la forma redonda de hamburguesa.
+                    </li>
+                    <li>Calienta la parrilla y cocina las hamburguesas por seis minutos de cada lado.
+                    </li>
+                    <li>Sirve la hamburguesa con tus agregados preferidos. Puedes ponerle tomate, lechuga, panceta, cebolla carameliza, queso, lo que quieras! Mientras más completa, MEJOR! 
+                    </li>
+                    <li>A disfrutar!</li>
+                  </ol>
+               </div>
+
+        </div>
+    
+        
+     
+
+        
+        <!--FOOTER-->
+        <footer class="footer">
+            <div class="uncologo">
+                <img src="Images\UncoLogoFooter.png"/>
+            </div>
+            <div class="alumnos">
+                <h4>Latorre Rosales, Manuel Agustín. <br>
+                Benegas Cabral, Selena Guadalupe.</h4>
+            </div>
+            <div class="failogo">
+                <img src="Images\FAI LOGO.png"/>
+            </div>
+        </footer>
+    
+    </div>
+</body>
+</html>

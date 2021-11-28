@@ -1,0 +1,26 @@
+@media screen and (max-width: 1000px) {
+    .recipe-list_img-row{
+        max-height: 150px;
+        max-width: 150px;
+        min-width: 150px;
+    }
+    .recipe-list_res_description{
+        font-size: 12px;
+    }
+    .recipe-list_res_name{
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 616px) {
+    .recipe-list_img-row{
+        max-height: 90px;
+        max-width: 90px;
+        min-width: 90px;
+        margin: 0;
+    }
+    .recipe-list_res_description{
+        font-size: 8px;
+    }
+
+}

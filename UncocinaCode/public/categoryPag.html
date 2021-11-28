@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" href="navFullScreen.css">
+    <link rel="stylesheet" href="navResp.css">
+    <link rel="stylesheet" href="mainPag.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="categoryMenu.css">
+    <link rel="stylesheet" href="mainPagResp.css">
+    <link rel="stylesheet" href="categoryPagResp.css">
+    <title>Unocina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a4092194f5.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov&display=swap" rel="stylesheet">
+    
+    
+  </head>
+<body>
+    <div class="mainPag">
+    <!--HEADER-->
+    <div class="header">
+        <a id="linkLogo"href="index.html"></a>
+        <nav class="navbar">
+            <input type="checkbox" class="checkBoxBot" id="botSubMenu"><!--For simulate button press-->
+            <label for="botSubMenu" class="labBotMenuResp" id="labelBotSubMenu1"><i class="fas fa-bars"></i></label> <!--for style of button--> 
+            <ul class="menu">
+                <li id="botinicio"><a href="index.html">Inicio</a></li>
+                <li><a href="#">Recetas</a>
+                    <ul class="submenu">
+                        <li><a href="categoryPag.html"> <i class="fas fa-drumstick-bite" id="meat"></i>Platos con carne</a></li>
+                        <li><a href="categoryPag.html"><i class="fas fa-carrot" id="carrot"></i>Platos vegetarianos</a></li>
+                        <li><a href="categoryPag.html"><i class="fas fa-ice-cream" id="icecream"></i>Postres</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Consejos</a>          
+                    <ul class="submenu">
+                        <li><a href="#"><i class="fas fa-book libro" ></i>Consejos de cocina</a></li>
+                        <li><a href="#"><i class="fas fa-book libro" ></i>Consejos de nutricion</a></li>
+                        
+                    </ul>
+                    
+                </li>
+            </ul>
+            <div class="buscador">
+                <input type="search" name="searchBar" placeholder="&#xF002;    Buscar receta">
+            </div>
+        </nav>
+    </div>
+
+    
+    <div class="category-menu">
+        <div class="filter">
+            <h2 class ="filter_title">Filtrar por</h2>
+            <ul class="filter_list-category">
+                <li class="filter_list-category_name">Tipo</li>
+                <ul class="filter_list-category_item">
+                    
+                    <li class="filter_list-category_item_element"><label><input type="checkbox" id="cbox0" value="fourth_checkbox">Carne</label></li>
+                    <li class="filter_list-category_item_element"><label><input type="checkbox" id="cbox1" value="fifth_checkbox">Vegetarianos</label></li>
+                    <li class="filter_list-category_item_element"><label><input type="checkbox" id="cbox2" value="sixth_checkbox">Postres</label></li>
+                </ul>
+            </ul>
+            <ul class="filter_list-category">
+                <li class="filter_list-category_name">Mas vistos</li>
+                <ul class="filter_list-category_item">
+                    <li class="filter_list-category_item_element"><label><input type="checkbox" id="cbox3" value="seventh_checkbox">Del dia</label></li>
+                    <li class="filter_list-category_item_element"><label><input type="checkbox" id="cbox4" value="eighth_checkbox">Ultimos 7 dias</label></li>
+                    <li class="filter_list-category_item_element"><label><input type="checkbox" id="cbox5" value="nineth_checkbox">Ultimos 10 dias</label></li>
+                    <li class="filter_list-category_item_element"><label><input type="checkbox" id="cbox6" value="tenth_checkbox">Ultimos 15 dias</label></li>
+                    <li class="filter_list-category_item_element"><label><input type="checkbox" id="cbox7" value="eleventh_checkbox">Ultimos 30 dias</label></li>
+                </ul>
+            </ul>
+        </div>
+
+
+
+
+
+
+        <div class="container-recipe-list">
+            <div class="recipe-list">
+            </div>
+            <div class="search-selector">
+                <ul class="pag-number">
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script src="js/categoryMenu.mjs" type="module"></script>
+
+        
+        <!--FOOTER-->
+        <footer class="footer">
+            <div class="uncologo">
+                <img src="Images\UncoLogoFooter.png"/>
+            </div>
+            <div class="alumnos">
+                <h4>Latorre Rosales, Manuel Agustín. <br>
+                Benegas Cabral, Selena Guadalupe.</h4>
+            </div>
+            <div class="failogo">
+                <img src="Images\FAI LOGO.png"/>
+            </div>
+        </footer>
+    
+    </div>
+</body>
+</html>

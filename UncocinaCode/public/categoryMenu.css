@@ -1,0 +1,213 @@
+.category-menu{
+    position: relative;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    border: 1px solid #39d4c8;
+    display: flex;
+    z-index: 0;
+    
+}
+
+.filter{
+    min-width: 20%;
+    position: relative;
+    border-right: 1px solid #39d4c8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.filter_title{
+    font-size: 1.3vw;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 0;
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
+    margin-bottom: .8vw;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(95,960,470)'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%234FE'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='540' height='450' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.1'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+}
+
+.filter_list-category{
+    list-style: none;
+    border-bottom: 1px solid #39d4c8;
+    padding-left: 0;
+    padding-bottom: 1vw;
+    margin-top: 0;
+}
+.filter_list-category:last-child{
+    border: 0;/*For not generate divisorie line at last category*/
+}
+
+.filter_list-category_name{
+    font-size: 1vw;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin-bottom: .5vw;
+    padding-left: .3vw;
+}
+.filter_list-category_item{
+    list-style: none;
+    margin-left: 1vw;
+    font-size: .8vw;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    
+}
+.filter_list-category_item_element{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 1.6vw;
+    width: 90%;
+    padding-left: .2vw;
+    border-radius: 5px;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    position: relative;
+}
+.filter_list-category_item_element:hover{
+    background-color: #39d4c8;
+}
+.filter_list-category_item_element>label{
+    padding-top: .5vw;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+  
+}
+.filter_list-category_item_element>label>input{
+    height: .7vw;
+    width: .7vw;
+}
+
+
+/*Recipes cards*/
+.container-recipe-list{
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    align-items:baseline;
+    flex-direction: column;
+    
+
+}
+.recipe-list{
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    flex-wrap: wrap;
+    left: 20%;
+    padding: 2vw;
+    margin-bottom: 4vw;
+    justify-content: center;
+
+}
+
+.recipe-list_img-row{
+    position: relative;
+    max-height: 250px;
+    max-width: 250px;
+    min-width: 250px;
+    margin-bottom: 18px;
+}
+
+
+.recipe-list_img-row>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    cursor: pointer;
+}
+
+.recipe-list_href-receta{
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+}
+.recipe-list_res_description{
+    position: absolute;
+    bottom: 0;
+    height: 25%;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    text-align: center;  
+    display: flex;
+    flex-direction: column;
+}
+.recipe-list_res_name{
+    margin-top: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+}
+
+.search-selector{
+    position: absolute;
+    bottom: 2vw;
+    height: 2vw;
+    width: 50%;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+    border: .2vw solid #39d4c8;
+    display: flex;
+    background-color: #292525;
+}
+.pag-number{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    gap: .5vw;
+}
+.pag-number_button,.pag-left_button,.pag-right_button{
+    color: white;
+    font-size: 1vw;
+    height: (100%);
+    width: 2vw;
+    text-align: center;
+    padding-top: .4vw;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    cursor: pointer;
+}
+
+.pag-number_button:hover{
+    background-color: #39d4c8;
+}
+.hover:hover{
+    background-color: #39d4c8;
+    
+}
+
+
+
+

@@ -1,0 +1,120 @@
+.recipe {
+    position: relative;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    border: 1px solid #39d4c8;
+    display: column;
+    z-index: 0;
+   
+}
+
+.recipe-info {
+    border: 1px solid #a6e9e3;
+    border-bottom: none;
+    margin: 1em;
+}
+.properties {
+    font-size: 1.5em;
+    padding: 0.5em 1.1em;
+    border-bottom: 1px solid #a6e9e3;
+}
+.property {
+    display: block;
+    display: inline-block;
+    margin: 0 5px 0 0;
+    font-family: 'Open Sans', sans-serif;
+}
+.property.diners::before {
+    background-position: 0 0;
+}
+.property.duration::before {
+    background-position: 0 -17px;
+}
+.property.category::before {
+    background-position: 0 -34px;
+}
+.property.difficulty::before {
+    background-position: 0 -51px;
+}
+.property::before {
+    position: relative;
+    top: 3px;
+    margin-right: 7px;
+    display: inline-block;
+    background-image: url("https://static.rg.ltmcdn.com/img/web/properties.png");
+    background-size: 16px;
+    width: 16px;
+    height: 16px;
+    content: "";
+    background-repeat: no-repeat;
+}
+.property:not(:first-child) {
+    border-left: 1px solid #a6e9e3;
+    padding: 0 0 0 7px;
+}
+.ingredientes, .recipe-info .ingredientes-amp, .recipe-info .properties {
+    border-bottom: 1px solid #a6e9e3;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em;
+}
+.titulo.titulo--h3 {
+    font-size: 2em;
+    line-height: 1.2;
+    font-weight: 600;
+    padding: 0 0.3em 0 0.1em;
+    margin: 0.5em 1em 0.25em;
+    color: #333;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+}
+.strong {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+
+.img-recipe {
+    margin-top: 1em;
+    margin-left:1em;
+    margin-right: 1em;
+    height: 50%;
+    width: 50%;
+    
+    
+}
+.img-recipe>img{
+    width: 100%;
+    height: 100%;
+    Object-fit: cover;
+}
+
+.procedimiento {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em;
+    padding-left: 2vw;
+    
+}
+
+.procedimiento>ol>li{
+    margin-bottom: 1vw;
+}
+
+ol > li::marker {
+    font-weight: bold;
+  }
+
+.title-recipe{
+    margin-top: 1vw;
+    margin-bottom: 1.5vw;
+    font-size:2.6vw;
+    font-family: 'Volkhov', serif;
+    font-weight: 100;
+    width: 100%;
+    left: 0;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 1px;
+    padding-left: 3vw;
+}
+

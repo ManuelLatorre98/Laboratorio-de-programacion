@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" href="navFullScreen.css">
+    <link rel="stylesheet" href="navResp.css">
+    <link rel="stylesheet" href="mainPag.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="carousel.css">
+    <link rel="stylesheet" href="mainPagResp.css">
+    <title>Unocina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a4092194f5.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov&display=swap" rel="stylesheet">
+    
+    
+    
+    
+  </head>
+<body>
+    <div class="mainPag">
+    <!--HEADER-->
+    <div class="header">
+        <a id="linkLogo" href="index.html"></a>
+        <nav class="navbar">
+            <input type="checkbox" class="checkBoxBot" id="botSubMenu"><!--For simulate button press-->
+            <label for="botSubMenu" class="labBotMenuResp" id="labelBotSubMenu1"><i class="fas fa-bars"></i></label> <!--for style of button--> 
+            <ul class="menu">
+                <li id="botinicio"><a href="index.html">Inicio</a></li>
+                <li><a href="#">Recetas</a>
+                    <ul class="submenu">
+                        <li><a href="categoryPag.html"> <i class="fas fa-drumstick-bite" id="meat"></i>Platos con carne</a></li>
+                        <li><a href="categoryPag.html"><i class="fas fa-carrot" id="carrot"></i>Platos vegetarianos</a></li>
+                        <li><a href="categoryPag.html"><i class="fas fa-ice-cream" id="icecream"></i>Postres</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Consejos</a>          
+                    <ul class="submenu">
+                        <li><a href="#"><i class="fas fa-book libro" ></i>Consejos de cocina</a></li>
+                        <li><a href="#"><i class="fas fa-book libro" ></i>Consejos de nutricion</a></li>
+                        
+                    </ul>
+                    
+                </li>
+            </ul>
+            <div class="buscador">
+                <input type="search" name="searchBar" placeholder="&#xF002;    Buscar receta">
+            </div>
+        </nav>
+    </div>
+
+    
+        <h1 class="cat-title">RECOMENDADOS DEL DIA</h1>
+
+
+        <!--CAROUSEL-->
+        <div class= "carousel">
+            
+            <button class="carousel_button carousel_button--left">
+                <img src="Images/flechaizq.png" alt="">
+            </button>
+            <div class="carousel_track-container">
+                <ul class="carousel_track">
+                    <li class="carousel_slide current-slide">
+                        <div class="carousel-creator">
+                            <div class="carousel-photo-creator"><img src="Images\agus.jpg" alt=""></div>
+                             <span class="carousel-name-creator">Creado por Agustin Chiarotto</span>
+                         </div>
+                        <img class="carousel_image" src="Images/ComidaCarrousel1.png" alt="">
+                    </li>
+                    <li class="carousel_slide">
+                        <div class="carousel-creator">
+                            <div class="carousel-photo-creator"><img src="Images/richard.jpg" alt=""></div>
+                             <span class="carousel-name-creator">Creado por Ricardo Markiewicz</span>
+                         </div>
+                        <img class="carousel_image" src="Images/ComidaCarrousel2.png" alt="">
+                    </li>
+                    <li class="carousel_slide">
+                        <div class="carousel-creator">
+                            <div class="carousel-photo-creator"><img src="Images/nacho.jpg" alt=""></div>
+                             <span class="carousel-name-creator">Creado por Ignacio Ciruzzi</span>
+                         </div>
+                        <img class="carousel_image" src="Images/ComidaCarrousel3.jpg" alt="">
+                    </li>
+                </ul>
+            </div>
+            <button class="carousel_button carousel_button--right">
+                <img src="Images/flechader.png" alt="">
+            </button>
+    
+    
+            <div class="carousel_nav">
+                <div class="carousel_recipe-name"><span>Comida</span></div>
+                <div class="carousel_container-indicator">
+                    <button class="carousel_indicator current-slide-dot"></button>
+                    <button class="carousel_indicator"></button>
+                    <button class="carousel_indicator"></button>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/carousel.js"></script>
+
+        <!--MAINPAG-->
+        
+            <h1 class="cat-title">RECETAS CON CARNE</h1>   
+            <div class="row" >
+                <!--<div class="img-row">
+                    <img src="Images/tacos.jpg"/>
+                    <div class="res_description">
+                        <span class="res_name">Tacos</span>
+                        <span class="res_difficulty">Dificultad: *****</span>
+                    </div>
+                    <a href="recipe.html" class="href-receta"></a>
+                </div>
+                <div class="img-row">
+                    <img src="Images\carneHorno.jpeg"/>
+                    <div class="res_description">
+                        <span class="res_name">Carne al horno</span>
+                        <span class="res_difficulty">Dificultad: *****</span>
+                    </div>
+                    <a href="recipe.html" class="href-receta"></a>
+                 
+                </div>
+                <div class="img-row" >
+                    <img src="Images\churrascoConSalsa.jpg"/>
+                    <div class="res_description">
+                        <span class="res_name">Churrascos con salsa</span>
+                        <span class="res_difficulty">Dificultad: *****</span>
+                    </div>
+                    <a href="recipe.html" class="href-receta"></a>
+                </div>
+                <div class="img-row">
+                    <img src="Images\hamburguesa.jpg"/>
+                    <div class="res_description">
+                        <span class="res_name">Hamburguesa</span>
+                        <span class="res_difficulty">Dificultad: *****</span>
+                    </div>
+                    <a href="recipe.html" class="href-receta"></a>
+
+                </div>-->
+            </div>
+            
+            <div class="masrecetas_button">
+                <a href="categoryPag.html"></a>
+                <span>MAS RECETAS</span>
+            </div>
+            <div class="divide-line"></div>
+
+
+
+
+
+            <h1 class="cat-title">RECETAS VEGETARIANAS</h1>
+            <div class="row" >
+                <!--<div class="img-row">
+                    <img src="Images\HamburguesaVegana.jpg"/>
+                    <div class="res_description">
+                        <span class="res_name">HamburguesaVegana</span>
+                        <span class="res_difficulty">Dificultad: *****</span>
+                    </div>
+                    <a href="recipe.html" class="href-receta"></a>
+                </div>
+                <div class="img-row">
+                    <img src="Images\milhojas_berenjena.jpg"/>
+                    <div class="res_description">
+                        <span class="res_name">Mil hojas de berenjena</span>
+                        <span class="res_difficulty">Dificultad: *****</span>
+                    </div>
+                    <a href="recipe.html" class="href-receta"></a>
+                </div>
+                <div class="img-row" >
+                    <img src="Images\creme-espinacas-queso-960x540.jpg"/>
+                    <div class="res_description">
+                        <span class="res_name">Espinacas con queso a la crema</span>
+                        <span class="res_difficulty">Dificultad: *****</span>
+                    </div>
+                    <a href="recipe.html" class="href-receta"></a>
+                </div>
+                <div class="img-row">
+                    <img src="Images\berenjenas-rellenas-seitan-receta.jpg"/>
+                    <div class="res_description">
+                        <span class="res_name">Tacos</span>
+                        <span class="res_difficulty">Dificultad: *****</span>
+                    </div>
+                    <a href="recipe.html" class="href-receta"></a>
+                </div>-->
+            </div>
+            <div class="masrecetas_button">
+                <a href="categoryPag.html"></a>
+                <span>MAS RECETAS</span>
+            </div>
+            <div class="divide-line"></div>
+
+
+
+
+           <h1 class="cat-title">POSTRES</h1>
+            <div class="row" >
+                <!--<div class="img-row">
+                    <img src="Images\Tiramisu.jpg"/>
+                    <div class="res_description">
+                        <span class="res_name">Tacos</span>
+                        <span class="res_difficulty">Dificultad: *****</span>
+                    </div>
+                    <a href="recipe.html" class="href-receta"></a>
+                </div>
+                <div class="img-row">
+                    <img src="Images\cupcake.jpg"/>
+                    <div class="res_description">
+                        <span class="res_name">Tacos</span>
+                        <span class="res_difficulty">Dificultad: *****</span>
+                    </div>
+                    <a href="recipe.html" class="href-receta"></a>
+                </div>
+                <div class="img-row" >
+                    <img src="Images\mouseFrutilla.jpg"/>
+                    <div class="res_description">
+                        <span class="res_name">Tacos</span>
+                        <span class="res_difficulty">Dificultad: *****</span>
+                    </div>
+                    <a href="recipe.html" class="href-receta"></a>
+                </div>
+                <div class="img-row">
+                    <img src="Images\brownie.jpg"/>
+                    <div class="res_description">
+                        <span class="res_name">Tacos</span>
+                        <span class="res_difficulty">Dificultad: *****</span>
+                    </div>
+                    <a href="recipe.html" class="href-receta"></a>
+                </div>-->
+            </div>
+            <div class="masrecetas_button">
+                <a href="categoryPag.html"></a>
+                <span>MAS RECETAS</span>
+            </div>
+
+            
+            <script src="js/mainPag.mjs" type="module"></script>
+            
+            <!--FOOTER-->
+        <footer class="footer">
+            <div class="uncologo">
+                <img src="Images\UncoLogoFooter.png"/>
+            </div>
+            <div class="alumnos">
+                <h4>Latorre Rosales, Manuel Agustín. <br>
+                Benegas Cabral, Selena Guadalupe.</h4>
+            </div>
+            <div class="failogo">
+                <img src="Images\FAI LOGO.png"/>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

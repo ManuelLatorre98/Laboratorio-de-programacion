@@ -1,0 +1,208 @@
+[
+    {
+        "dirImg": "Images/tacos.jpg",
+        "recipeName":"Tacos",
+        "name": "Pedro",
+        "difficulty": 1,
+        "views":5,
+        "id":1,
+        "recipeUlr":"recipe",
+        "category":"carne",
+        "publicationDate":"11-26-2021"
+    },
+
+    {
+        "dirImg": "Images/carneHorno.jpeg",
+        "recipeName":"Carne al horno",
+        "name": "Juan",
+        "difficulty": 2,
+        "views":10,
+        "id":2,
+        "recipeUlr":"",
+        "category":"carne",
+        "publicationDate":"12-02-2021"
+        
+    },
+
+    {
+        "dirImg": "Images/churrascoConSalsa.jpg",
+        "recipeName":"Churrasco con salsa",
+        "name": "Maria",
+        "difficulty": 3,
+        "views":4,
+        "id":3,
+        "recipeUlr":"",
+        "category":"carne",
+        "publicationDate":"12-02-2021"
+
+    },
+    
+    {
+        "dirImg": "Images/hamburguesa.jpg",
+        "recipeName":"Hamburguesa",
+        "name": "Hernan",
+        "difficulty": 4,
+        "views":20,
+        "id":4,
+        "recipeUlr":"eo",
+        "category":"carne",
+        "publicationDate":"12-07-2021"
+    },
+
+    {
+        "dirImg": "Images/HamburguesaVegana.jpg",
+        "recipeName":"Hamburgesa vegana",
+        "name": "Manuel",
+        "difficulty": 5,
+        "views":5,
+        "id":5,
+        "recipeUlr":"eo",
+        "category":"verduras",
+        "publicationDate":"11-26-2021"
+    },
+
+    {
+        "dirImg": "Images/milhojas_berenjena.jpg",
+        "recipeName":"Milhojas de berenjena",
+        "name": "Bruno",
+        "difficulty": 1,
+        "views":10,
+        "id":6,
+        "recipeUlr":"eo",
+        "category":"verduras",
+        "publicationDate":"12-02-2021"
+    },
+
+    {
+        "dirImg": "Images/creme-espinacas-queso-960x540.jpg",
+        "recipeName":"Crema de espinacas con queso",
+        "name": "Agustina",
+        "difficulty": 3,
+        "views":4,
+        "id":7,
+        "recipeUlr":"eo",
+        "category":"verduras",
+        "publicationDate":"12-02-2021"
+    },
+    
+    {
+        "dirImg": "Images/berenjenas-rellenas-seitan-receta.jpg",
+        "recipeName":"Berenjenas rellenas",
+        "name": "Selena",
+        "difficulty":4,
+        "views":20,
+        "id":8,
+        "recipeUlr":"eo",
+        "category":"verduras",
+        "publicationDate":"12-07-2021"
+    },
+
+    {
+        "dirImg": "Images/Tiramisu.jpg",
+        "recipeName":"Tiramisu",
+        "name": "Luis",
+        "difficulty": 2,
+        "views":5,
+        "id":9,
+        "recipeUlr":"eo",
+        "category":"postre",
+        "publicationDate":"11-26-2021"
+    },
+
+    {
+        "dirImg": "Images/cupcake.jpg",
+        "recipeName":"Cupcake",
+        "name": "Pedro",
+        "difficulty": 1,
+        "views":10,
+        "id":10,
+        "recipeUlr":"eo",
+        "category":"postre",
+        "publicationDate":"11-26-2021"
+    },
+
+    {
+        "dirImg": "Images/mouseFrutilla.jpg",
+        "recipeName":"Mouse de frutilla",
+        "name": "Ignacio",
+        "difficulty": 4,
+        "views":4,
+        "id":11,
+        "recipeUlr":"eo",
+        "category":"postre",
+        "publicationDate":"12-07-2021"
+    },
+    
+    {
+        "dirImg": "Images/brownie.jpg",
+        "recipeName":"Brownie",
+        "name": "Antonela",
+        "difficulty": 5,
+        "views":20,
+        "id":12,
+        "recipeUlr":"eo",
+        "category":"postre",
+        "publicationDate":"11-26-2021"
+    },
+
+    {
+        "dirImg": "Images/tacos.jpg",
+        "recipeName":"Tacos",
+        "name": "Camila",
+        "difficulty": 5,
+        "views":1,
+        "id":13,
+        "recipeUlr":"eo",
+        "category":"carne",
+        "publicationDate":"11-26-2021"
+    },
+
+    {
+        "dirImg": "Images/tacos.jpg",
+        "recipeName":"Tacos",
+        "name": "Carla",
+        "difficulty": 2,
+        "views":1,
+        "id":14,
+        "recipeUlr":"eo",
+        "category":"carne",
+        "publicationDate":"11-26-2021"
+    },
+
+    {
+        "dirImg": "Images/tacos.jpg",
+        "recipeName":"Tacos",
+        "name": "Leonel",
+        "difficulty": 1,
+        "views":4,
+        "id":15,
+        "recipeUlr":"eo",
+        "category":"carne",
+        "publicationDate":"12-24-2021"
+    },
+    
+    {
+        "dirImg": "Images/tacos.jpg",
+        "recipeName":"Tacos",
+        "name": "Juan Pablo",
+        "difficulty": 3,
+        "views":1,
+        "id":16,
+        "recipeUlr":"eo",
+        "category":"carne",
+        "publicationDate":"12-24-2021"
+    },
+    
+    {
+        "dirImg": "Images/milhojas_berenjena.jpg",
+        "recipeName":"Milhojas de berenjena",
+        "name": "ADOLFO 10",
+        "difficulty": 3,
+        "views":500,
+        "id":17,
+        "recipeUlr":"eo",
+        "category":"carne",
+        "publicationDate":"12-24-2023"
+    }
+  
+]
