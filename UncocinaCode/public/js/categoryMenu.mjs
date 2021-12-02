@@ -35,7 +35,7 @@ async function loadRecipes(){
     deleteElements(recipeCont);//Delete "old" recipes in windows
     for (let i = minRange; i < maxRange; i++) {//max 16 recipes per page
         dirImage= orderedRecipeData[i].dirImg;
-        name= orderedRecipeData[i].name;
+        name= orderedRecipeData[i].recipeName;
         difficulty= orderedRecipeData[i].difficulty;
         views= orderedRecipeData[i].views;
         cardCreator(dirImage,name,difficulty,views); 
@@ -240,14 +240,3 @@ function main(){
 }
 
 main();
-
-
-
-
-
-
-
-
-
-
-

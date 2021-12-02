@@ -11,7 +11,7 @@ function getByCategory(category){
     return recipesOfCategory;
 }
 
-function getByDay(maxDiffDays){
+function getByDay(maxDiffDays,dataSend){
     let recipesInDate=[];
     dataSend.forEach(recipe=>{
         let recipeDate=new Date(recipe.publicationDate);
@@ -50,24 +50,13 @@ function getById(id){
     return dataSend
 }
 
-function getBetweenRange(amount,from,category){
+function getBetweenRange(amount,from){
     let until=from+amount;
         if(until>recipes.length){//If until exceeds the index, then returns all remaning elements
             until=recipes.length;
         }
-        let recipesInRange
-        if(category===undefined){
-            recipesInRange=recipes.slice(from,until);
-        }else{
-            let recipesOfCategory=[];
-            recipes.forEach(recipe=>{
-                if(recipe.category==category){ 
-                    recipesOfCategory.push(recipe);
-                }
-            });
-            recipesInRange=recipesOfCategory.slice(from,until);
-        }
-    return recipesInRange;    
+
+    return recipes.slice(from,until);    
 }
 
 function postNewRecipe(req){

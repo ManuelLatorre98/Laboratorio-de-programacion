@@ -19,7 +19,7 @@ router.get("/allrecipes",(req,res)=>{//get all recipes
         if(isNaN(maxDiffDays) || maxDiffDays<0){//String or negative return bad request
             res.sendStatus(400);
         }else{
-            dataSend=recipesBusiness.getByDay(maxDiffDays)
+            dataSend=recipesBusiness.getByDay(maxDiffDays,dataSend)
         }
     }
 
@@ -48,9 +48,8 @@ router.get("/:id",(req,res)=>{//get a only recipe with her id
 router.get("/",(req,res)=>{//get multiple recipes between a range
     let amount=parseInt(req.query.amount, 10);
     let from=parseInt(req.query.from, 10);
-    let category=req.query.category;
     if(amount>=0 && from>=0){
-        let dataSend= getBetweenRange(amount, from,category)
+        let dataSend= recipesBusiness.getBetweenRange(amount, from)
         if(dataSend.length>0){
             res.json(dataSend);
         }else{
