@@ -6,6 +6,7 @@ router.get("/",(req,res)=>{//get all recipes
     let category=req.query.category;
     let maxDiffDays=req.query.maxDiffDays;
     let amount=req.query.amount;
+    let from=req.query.from;
     let fromMinViews=req.query.fromMinViews;//Returns the recipes with views above the parameter
     let stop=false;
     //Verification
@@ -20,7 +21,7 @@ router.get("/",(req,res)=>{//get all recipes
         }
     }
     if(!stop && amount!=undefined || fromMinViews!=undefined){
-        if(amount<0 || fromMinViews<0){
+        if(amount<0 && from==undefined || isNaN(from) || fromMinViews<0){
             stop=true;
         }
     }
@@ -31,6 +32,7 @@ router.get("/",(req,res)=>{//get all recipes
             "category":category,
             "maxDiffDays":maxDiffDays,
             "amount":amount,
+            "from":from,
             "fromMinViews":fromMinViews
         }
         

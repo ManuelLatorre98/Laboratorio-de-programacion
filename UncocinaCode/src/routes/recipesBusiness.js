@@ -19,7 +19,7 @@ function getData(querys){
     }
     
     if(querys.amount!=undefined && querys.fromMinViews===undefined){//Return the n recipes most viewed
-        recipesReq=getAmountRecipes(querys.amount,recipesReq);
+        recipesReq=getAmountRecipes(querys.amount,querys.from,recipesReq);
         
     }
     
@@ -57,8 +57,8 @@ function getBetweenRange(amount,fromMinViews,recipesReq){
     return (recipesReq.sort((a,b)=>b.views-a.views)).slice(0,amount);
 }
 
-function getAmountRecipes(amount,recipesReq){
-    return (recipesReq.sort((a,b)=>b.views-a.views)).slice(0,amount);
+function getAmountRecipes(amount,from,recipesReq){
+    return (recipesReq.sort((a,b)=>b.views-a.views)).slice(from,amount);
 }
 
 function postNewRecipe(req){
