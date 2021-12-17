@@ -52,9 +52,55 @@ function difficultyCreator(califCard,numStars){
     
 }
 
+
+
+function createSlide(imgCreator,txtCreator,imgRecipe,recipeName,classNames,recipeCont){
+    let carouselSlide=document.createElement("li");
+    let carouselCreator= document.createElement("div")
+    let carouselPhotoCreator=document.createElement("div");
+    let carouselImgCreator=document.createElement("img")
+    let carouselNameCreator=document.createElement("span");
+    let carouselImg=document.createElement("img")
+    let carouselNav=document.createElement("div")
+    let carouselRecipeName=document.createElement("span")
+
+    const {
+        carouselSlideClassName,
+        carouselCreatorClassName,
+        carouselPhotoCreatorClassName,
+        carouselNameCreatorClassName,
+        carouselImageClassName,
+        carouselNavClassName,
+        carouselRecipeNameClassName
+    }=classNames
+    
+    carouselSlide.className=carouselSlideClassName;
+    carouselCreator.className= carouselCreatorClassName;
+    carouselPhotoCreator.className=carouselPhotoCreatorClassName;
+    carouselNameCreator.className=carouselNameCreatorClassName;
+    carouselImg.className=carouselImageClassName;
+    carouselNav.className=carouselNavClassName;
+    carouselRecipeName.className=carouselRecipeNameClassName;
+
+    recipeCont.appendChild(carouselSlide);
+    carouselSlide.appendChild(carouselCreator);
+    carouselCreator.appendChild(carouselPhotoCreator);
+    carouselPhotoCreator.appendChild(carouselImgCreator);
+    carouselCreator.appendChild(carouselNameCreator);
+    carouselSlide.appendChild(carouselImg);
+    carouselSlide.appendChild(carouselNav);
+    carouselNav.appendChild(carouselRecipeName);
+
+    carouselImgCreator.src=imgCreator;
+    carouselNameCreator.textContent=txtCreator;
+    carouselImg.src=imgRecipe;
+    carouselRecipeName.textContent=recipeName
+}
+
+
 async function getRecipeData(query){
     return new Promise(async resolve =>{
-        const api_url="http://localhost:3000/api/recipes/allrecipes"+query;
+        const api_url="http://localhost:3000/api/recipes/"+query;
         try{
             const response= await fetch(api_url);
             const data= await response.json(api_url);
@@ -69,4 +115,4 @@ async function getRecipeData(query){
 }
 
 
-export{createCard, getRecipeData};
+export{createCard, getRecipeData,createSlide};

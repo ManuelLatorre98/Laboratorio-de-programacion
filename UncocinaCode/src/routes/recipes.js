@@ -1,32 +1,42 @@
-const { Router}= require("express");
+const { Router, query}= require("express");
 const router = Router();
 const recipesBusiness=require("./recipesBusiness");
 
-router.get("/allrecipes",(req,res)=>{//get all recipes
+router.get("/",(req,res)=>{//get all recipes
     let category=req.query.category;
-    let maxDiffDays=req.query.maxDiffDays
-    if(category===undefined){
-        dataSend=recipesBusiness.getAllRecipes();
-    }else{//Send all the recipes of a category
+    let maxDiffDays=req.query.maxDiffDays;
+    let amount=req.query.amount;
+    let fromMinViews=req.query.fromMinViews;//Returns the recipes with views above the parameter
+    let stop=false;
+    //Verification
+    if(category!=undefined){
         if(!isNaN(category)){//category is not a string return badRequest
-            res.sendStatus(400);
-        }else{
-            dataSend=recipesBusiness.getByCategory(category);
+            stop=true;
         }
     }
-
-    if(maxDiffDays!=undefined){
+    if(!stop && maxDiffDays!=undefined){
         if(isNaN(maxDiffDays) || maxDiffDays<0){//String or negative return bad request
-            res.sendStatus(400);
-        }else{
-            dataSend=recipesBusiness.getByDay(maxDiffDays,dataSend)
+            stop=true;
+        }
+    }
+    if(!stop && amount!=undefined || fromMinViews!=undefined){
+        if(amount<0 || fromMinViews<0){
+            stop=true;
         }
     }
 
-    if(dataSend.length==0){//res void, return not found
-        res.sendStatus(404);
+    //Search data
+    if(!stop){
+        const querys={
+            "category":category,
+            "maxDiffDays":maxDiffDays,
+            "amount":amount,
+            "fromMinViews":fromMinViews
+        }
+        
+        res.json(recipesBusiness.getData(querys));
     }else{
-        res.json(dataSend)
+        res.sendStatus(400);
     }
     
 })
@@ -45,20 +55,7 @@ router.get("/:id",(req,res)=>{//get a only recipe with her id
     }
 });
 
-router.get("/",(req,res)=>{//get multiple recipes between a range
-    let amount=parseInt(req.query.amount, 10);
-    let from=parseInt(req.query.from, 10);
-    if(amount>=0 && from>=0){
-        let dataSend= recipesBusiness.getBetweenRange(amount, from)
-        if(dataSend.length>0){
-            res.json(dataSend);
-        }else{
-            res.sendStatus(404);
-        }
-    }else{
-        res.sendStatus(400);
-    }
-});
+
 
 router.post("/",(req,res)=>{
     const { dirImg, name, difficulty, views,recipeUrl, category, publicationDate} = req.body;
@@ -66,7 +63,7 @@ router.post("/",(req,res)=>{
         let dataSend=recipesBusiness.postNewRecipe(req)
         res.json(dataSend);
     }else{
-        res.sendStatus(500);
+        res.sendStatus(400);
     }
 })
 
@@ -89,10 +86,10 @@ router.put("/:id", (req,res)=>{
     const { dirImg, name, difficulty, views,recipeUrl, category, publicationDate} = req.body;
     if(!isNaN(id) && id>=0){//if id is a number
         if(isNaN(dirImg) && isNaN(name) && !isNaN(difficulty) && !isNaN(views) && isNaN(recipeUrl) && isNaN(category) && !isNaN(Date.parse(publicationDate))){//express validator para verificar tipos
-            let dataSend= putById(req)
+            let dataSend=recipesBusiness.putById(req)
             res.json(dataSend);
         }else{
-            res.sendStatus(500);
+            res.sendStatus(400);
         }
     }else if(id<0){
         res.sendStatus(400)

@@ -1,10 +1,15 @@
+document.addEventListener('DOMContentLoaded', function() {
+    
+setTimeout(() => { //Simulate the request time for debug
+    console.log("EEEEEEEEEEEEEEEEEEEEEEEEEO")
+
+
 const track= document.getElementsByClassName("carousel_track")[0];
 const slides = Array.from(track.children);
 const nextButton = document.getElementsByClassName("carousel_button--right")[0];
 const prevButton = document.getElementsByClassName("carousel_button--left")[0];
 const dotsNav = document.getElementsByClassName("carousel_nav")[0];
 const dots= Array.from(document.getElementsByClassName("carousel_container-indicator")[0].children);
-
 const slideWidth= slides[0].getBoundingClientRect().width;/*gets the slide width*/
 
 //arrange the slides next to one another
@@ -37,6 +42,7 @@ prevButton.addEventListener("click", e =>{
 
 //Click right, move slides to the right
 nextButton.addEventListener("click", e => {
+    
     //Slides
     const currentSlide= document.getElementsByClassName("current-slide")[0];
     const slides= document.getElementsByClassName("carousel_slide");
@@ -66,5 +72,5 @@ dotsNav.addEventListener("click", e =>{
     updateDots(currentDot, targetDot);
 
 })
-
-
+}, 100);
+}, false);
