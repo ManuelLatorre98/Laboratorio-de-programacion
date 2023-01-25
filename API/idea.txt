@@ -1,0 +1,47 @@
+Usuarios se logean y mantienen la sesion iniciada en el telefono
+Pueden acceder a las recetas que hay con los menus que encontre
+En lugar de botones abajo poner ahi lista de ingredientes en iconos chicos y que sea
+expandible como en la imagen
+Tiempo estimado
+Lista favoritos cada Usuarios
+Lista recetas creadas Usuarios
+Categoria seleccionada por default que ponga top creadas ese dia (el resumen diario que pedia)
+La receta debe ser un array de pasos (Se guarda un string JSON en la bd)
+
+ingredients={ingredients:[
+  {
+      nombre:tal, 
+      cantidad:tal;
+  },
+  {
+    nombre:tal, 
+    cantidad:tal;
+  }
+]}
+
+{"ingredients":[{"nombre":"tal", "cantidad":"tal"},{"nombre":"tal","cantidad":"tal"}]}
+
+Recipe recibe array de categorias
+
+HACER DOCUMENTACION
+POBLACION
+QUIZAS HACER TEST
+
+
+PONER EN DOCU RECIPE SORT_BY= recipe_name
+              SORT_BY= difficulty
+              SORT_BY= category_name
+              SORT_BY= creationDate
+              SORT_BY= estimatedTime
+              SORT_BY= calification
+
+USUARIO:  GET RECIPES USER
+          GET RECIPES FAV
+
+{"ingredients": [
+  {"nombre": "tal", "cantidad": "tal"},
+  {"nombre": "tal", "cantidad": "tal"}
+  ]
+}
+
+{"step1": "Holi", "step2": "Holi2"}
