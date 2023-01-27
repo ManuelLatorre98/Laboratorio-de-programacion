@@ -1,3 +1,5 @@
+CREATE DATABASE uncocina;
+USE uncocina;
 CREATE TABLE user (
   user_email VARCHAR(255),
   user_name VARCHAR(64),
@@ -13,19 +15,13 @@ CREATE TABLE recipe (
   imageURL VARCHAR(500) NOT NULL,
   estimatedTime INTEGER NOT NULL,
   creationDate DATE NOT NULL,
-  difficulty VARCHAR(10) NOT NULL DEFAULT 'Media', CHECK (VALUE IN ('Facil', 'Media', 'Dificil')), 
-  FOREIGN KEY (user_email) REFERENCES user(user_email) ON UPDATE CASCADE ON DELETE RESTRICT,
-  FOREIGN KEY (user_name) REFERENCES user(user_name) ON UPDATE CASCADE ON DELETE RESTRICT,
+  difficulty VARCHAR(10) NOT NULL DEFAULT 'Media', CHECK (difficulty IN ('Facil', 'Media', 'Dificil')), 
+  FOREIGN KEY (user_email, user_name) REFERENCES user(user_email, user_name) ON UPDATE CASCADE ON DELETE CASCADE,
   PRIMARY KEY (recipe_name, user_email, user_name)
 );
 
 CREATE TABLE category(
   category_name VARCHAR(64) PRIMARY KEY
-);
-
-CREATE TABLE ingredient(
-  ingredient_name VARCHAR(64) PRIMARY KEY,
-  imageURL VARCHAR(500) NOT NULL
 );
 
 CREATE TABLE haveFav(
@@ -59,14 +55,4 @@ CREATE TABLE belongs(
   FOREIGN KEY (recipe_name, recipe_user_email, recipe_user_name) REFERENCES recipe(recipe_name, user_email, user_name) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY (category_name) REFERENCES category(category_name) ON UPDATE CASCADE ON DELETE CASCADE,
   PRIMARY KEY(recipe_name, recipe_user_email, recipe_user_name, category_name)
-);
-
-CREATE TABLE need(
-  recipe_name VARCHAR(64),
-  recipe_user_email VARCHAR(255),
-  recipe_user_name VARCHAR(64),
-  ingredient_name VARCHAR(64),
-  FOREIGN KEY (recipe_name, recipe_user_email, recipe_user_name) REFERENCES recipe(recipe_name, user_email, user_name) ON UPDATE CASCADE ON DELETE RESTRICT,
-  FOREIGN KEY (ingredient_name) REFERENCES ingredient(ingredient_name) ON UPDATE CASCADE ON DELETE RESTRICT,
-  PRIMARY KEY(recipe_name, recipe_user_email, recipe_user_name, ingredient_name)
 );

@@ -46,6 +46,7 @@ async function validateExistUser(data){
 
 const validateExistUserEmailOrNameBody = async(req, res, next) => {
   const data = req.body
+  console.log(data)
   const user_rows = await validateExistUserEmailOrName(data)
   if(user_rows.length>0){//If the user does exist already
     next()
