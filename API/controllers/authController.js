@@ -25,7 +25,7 @@ module.exports = {
       const token = generateToken(user[0])
       res.status(200).json({...user[0], token: token})
     }else{
-      res.status(401).json({Error: 'Invalid password'})
+      res.status(401).json({error: 'Invalid password'})
     }
   }
 }

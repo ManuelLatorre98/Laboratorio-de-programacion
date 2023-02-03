@@ -11,7 +11,8 @@ async function populate(){
   await categoryPopulate()
   await recipePopulate()
   await favPopulate()
-  await califPopulate()
+  await califPopulate() 
+  await new Promise(resolve => setTimeout(resolve, 500)) //Aprox time to actualice db
   process.exit()
 }
 populate()

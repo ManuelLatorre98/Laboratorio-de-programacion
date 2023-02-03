@@ -8,7 +8,8 @@ module.exports ={
     const res = await fetch(url, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+      authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzEyODU5OTl9.qhZSht5vf8RTHtSpA8g3gNZOz4pVPly-CLgw29AJRQs'
     },
     body: formBody
     })

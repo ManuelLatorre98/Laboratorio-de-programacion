@@ -7,7 +7,7 @@ const { validateNotExistFav, validateExistFav, validateExistCalif, validateNotEx
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/recipes',verifyToken,validateExistUserBody,getRecipes)
+router.get('/recipes',validateExistUserBody,getRecipes)
 
 router.get('/fav',verifyToken,validateExistUserBody,getFavs)
 router.post('/fav',verifyToken,validateExistUserBody,validateExistRecipeBody,validateNotExistFav, createFav)

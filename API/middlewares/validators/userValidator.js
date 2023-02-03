@@ -13,7 +13,7 @@ const validateLogon=[
     .isEmpty(),
   check('password')
     .exists()
-    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/, "i"), //8 caracteres minimo mezclando letras y numeros
+    .matches(/^(?=.*\d)[0-9a-zA-Z]{4,}$/, "i"), //5 caracteres minimo
   (req, res, next) => {
     validateResult(req, res, next)
   }
@@ -46,7 +46,6 @@ async function validateExistUser(data){
 
 const validateExistUserEmailOrNameBody = async(req, res, next) => {
   const data = req.body
-  console.log(data)
   const user_rows = await validateExistUserEmailOrName(data)
   if(user_rows.length>0){//If the user does exist already
     next()
