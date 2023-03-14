@@ -8,8 +8,8 @@ import { registerUser, resetAuth} from '../../store/slices/auth/authSlice';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import CustomTextInput from '../CustomTextInput/CustomTextInput';
 import Logo from './Logo';
-import RedirectButton from '../RedirectButton.js/RedirectButton';
-import { toggleShow } from '../../store/slices/navBar/navBar';
+import RedirectButton from '../RedirectButton/RedirectButton';
+import { setIsShow } from '../../store/slices/navBar/navBar';
 import { useNavigation } from '@react-navigation/native';
 
 export default function RegisterScreen() {
@@ -26,7 +26,7 @@ export default function RegisterScreen() {
     dispatch(registerUser(data))
   }
   useEffect(()=>{
-    if(show) dispatch(toggleShow(false))
+    if(show) dispatch(setIsShow(false))
     if(success){
       setShowErrorMessage(false)
       navigation.navigate("RecipesMain")

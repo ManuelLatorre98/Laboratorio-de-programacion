@@ -16,3 +16,8 @@ const fetcher = (method, endPointURL, body) => {
 export const postService = (endPointURL, data) => {
   return fetcher('post', endPointURL, data)
 }
+
+export const getQueryService = (endPointURL, data) => {
+  const params = {params: data}
+  return fetcher('get', endPointURL, params)
+}

@@ -12,10 +12,10 @@ export const navBarSlice = createSlice({
     setPressedButton:(state, {payload})=>{
       state.selectedButton = payload      
     },
-    toggleShow: (state, {payload}) => {
+    setIsShow: (state, {payload}) => {
         state.show = payload
     },
   }})
 
-export const {setPressedButton, toggleShow} = navBarSlice.actions
+export const {setPressedButton, setIsShow} = navBarSlice.actions
 export default navBarSlice.reducer

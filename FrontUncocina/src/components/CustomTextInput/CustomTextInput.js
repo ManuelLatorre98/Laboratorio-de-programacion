@@ -33,9 +33,11 @@ export default function CustomTextInput(props) {
               placeholderTextColor= {"#7c7979"}
               style={[textInputStyles.submitTextInput, error &&textInputStyles.submitTextInputError]}
             />
+            
             {error && error.message!="" && <Text style={textInputStyles.errorMessageText}>{error.message}</Text>}
         
             {isPass ? 
+            
             <TouchableOpacity style={textInputStyles.textInputIcon} onPress={changeShowPass}>
 
               {showPass ? 

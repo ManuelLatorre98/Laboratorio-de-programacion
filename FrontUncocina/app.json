@@ -24,10 +24,24 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.manuellatorre98.FrontUncocina"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "./plugins/withAndroidColorEdgeEffect",
+        {
+          "color": "red"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "0e0b7b11-ecdd-42fd-bd47-349615f8a00e"
+      }
     }
   }
 }

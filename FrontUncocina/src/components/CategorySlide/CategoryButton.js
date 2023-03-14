@@ -8,16 +8,11 @@ import { categoryButtonStyles } from "./styles";
 
 export default function CategoryButton(props){
   const {container, buttonText, cross} = categoryButtonStyles
-  const onPress = () =>{
-  }
-
-  useEffect(()=>{
-    
-  },[])
+  const {categoryName,itemIndex, handleSelectCategory} = props
   return(
     <View style={container}>
-      <Text style={buttonText} numberOfLines={1}>Recipe</Text>
-      <TouchableOpacity  >
+      <Text style={buttonText} numberOfLines={1}>{categoryName}</Text>
+      <TouchableOpacity onPress={()=>handleSelectCategory(itemIndex)}>
         <FontAwesomeIcon icon={faXmark} size={18} style={cross}/>
       </TouchableOpacity>
     </View>

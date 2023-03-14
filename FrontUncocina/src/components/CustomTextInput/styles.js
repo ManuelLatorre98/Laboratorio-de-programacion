@@ -1,11 +1,13 @@
 import { StyleSheet } from "react-native";
+import {colors} from '../../Theme/theme'
 export const textInputStyles = StyleSheet.create({
   textInputContainer:{
     width: '80%',
     color:'white',
+    justifyContent:'center',
   },
   submitTextInput:{
-    backgroundColor: '#333333',
+    backgroundColor: colors.lightBackground,
     width: '100%',
     height: 50,
     borderRadius: 15,
@@ -29,10 +31,12 @@ export const textInputStyles = StyleSheet.create({
   },
   textInputIcon:{
     position:'absolute',
-    marginTop:35,
-    marginLeft:280,
+    right:0,
+    paddingTop:25,
+    paddingRight:20
+    
   },
   icon:{
-    color:'#7c7979'
+    color:colors.iconColorGrayLight
   },
 })

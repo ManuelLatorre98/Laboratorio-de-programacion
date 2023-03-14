@@ -1,11 +1,14 @@
-import { faBorderStyle } from "@fortawesome/free-solid-svg-icons";
 import { StyleSheet } from "react-native";
-
+import {colors} from '../../Theme/theme'
 export const recipesStyles = StyleSheet.create({
   container:{
     flex: 1,
-    backgroundColor: 'rgba(33,32,32,255)',
+    backgroundColor: colors.darkBackground,
     alignItems: 'center',
+  },
+  recipeScroll:{
+    width:'95%',
+    marginTop:20
   }
 })
 
@@ -20,7 +23,7 @@ export const helloSlideStyles = StyleSheet.create({
     paddingRight:20,
     paddingBottom:20,
     borderBottomWidth:1,
-    borderBottomColor:'rgba(50,51,50,255)',
+    borderBottomColor:colors.lightBackground,
   },
   textContainer:{
     maxWidth:'75%',

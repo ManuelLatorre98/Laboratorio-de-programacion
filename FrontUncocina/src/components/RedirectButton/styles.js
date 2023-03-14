@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import {colors} from '../../Theme/theme'
 export const redirectButtonStyles = StyleSheet.create({
   optionText: {
     fontFamily: 'MulishLight',
@@ -8,7 +9,7 @@ export const redirectButtonStyles = StyleSheet.create({
   },
   redirectButton: {
     borderWidth: 3,
-    borderColor: "rgba(254,228,152,255)",
+    borderColor: colors.lightYellow,
     borderRadius: 50,
     marginTop: 5,
     paddingLeft:20,

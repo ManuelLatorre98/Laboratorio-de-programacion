@@ -7,6 +7,8 @@ import HomeScreen from './Auth/HomeScreen';
 import NavBar from './NavBar/NavBar';
 import RegisterScreen from './Auth/RegisterScreen';
 import RecipesMainScreen from './RecipesMainScreen/RecipesMainScreen';
+import RecipeDataScreen from './RecipeDataScreen/RecipeDataScreen';
+import { useEffect } from 'react';
 export default function IndexApp() {
   
   const [fontsLoaded] = useFonts({
@@ -16,16 +18,24 @@ export default function IndexApp() {
     MulishMedium: require('../../assets/fonts/Mulish-Medium.ttf')
   })
   const {show} = useSelector((state) => state.navBar)
+  const Stack = createNativeStackNavigator()
 
   if(!fontsLoaded) return null
+
+  function onScroll(){
+
+  }
   
-  const Stack = createNativeStackNavigator()
   return (
-    <NavigationContainer>
+    <NavigationContainer onScroll={onScroll}>
       <Stack.Navigator screenOptions={{headerShown:false}}>
       <Stack.Screen
-            name="RecipesMain"
-            component={RecipesMainScreen}
+          name="RecipesMain"
+          component={RecipesMainScreen}
+        />
+      <Stack.Screen
+            name="RecipesData"
+            component={RecipeDataScreen}
         />
         <Stack.Screen
             name="Home"
@@ -35,6 +45,8 @@ export default function IndexApp() {
           name="Register"
           component={RegisterScreen}
         />
+        
+        
         
 
       </Stack.Navigator>

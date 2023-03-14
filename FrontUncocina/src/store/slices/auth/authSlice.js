@@ -101,5 +101,5 @@ export const authSlice = createSlice({
 })
 
 
-export const { set_register_data, fullReset, resetAuth, resetUser } = authSlice.actions
+export const { fullReset, resetAuth, resetUser } = authSlice.actions
 export default authSlice.reducer

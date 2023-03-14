@@ -28,7 +28,6 @@ export default function NavButton(props){
   }
 
   useEffect(()=>{
-    console.log(props.buttonNumber)
     if(props.buttonNumber === selectedButton){
       setIconStyle(navIconSelected)
     }else{

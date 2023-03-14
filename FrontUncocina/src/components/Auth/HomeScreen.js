@@ -8,9 +8,9 @@ import SubmitButton from '../SubmitButton/SubmitButton';
 import CustomTextInput from '../CustomTextInput/CustomTextInput';
 import Logo from './Logo';
 import NavBar from '../NavBar/NavBar';
-import RedirectButton from '../RedirectButton.js/RedirectButton';
+import RedirectButton from '../RedirectButton/RedirectButton';
 import { useNavigation } from '@react-navigation/native';
-import { toggleShow } from '../../store/slices/navBar/navBar';
+import { setIsShow } from '../../store/slices/navBar/navBar';
 
 export default function HomeScreen() {
   const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
@@ -26,7 +26,7 @@ export default function HomeScreen() {
   }
 
   useEffect(()=>{
-    if(show) dispatch(toggleShow(false))
+    if(show) dispatch(setIsShow(false))
     if(success){
       navigation.navigate("RecipesMain")
     }

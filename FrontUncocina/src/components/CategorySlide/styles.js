@@ -1,12 +1,12 @@
-import { faBorderStyle } from "@fortawesome/free-solid-svg-icons";
 import { StyleSheet } from "react-native";
-
+import {colors} from '../../Theme/theme'
 export const categorySlideStyles = StyleSheet.create({
   container:{
     flexDirection:'column',
     width:'100%',
     alignItems:'center',
-    paddingLeft:20,
+    
+
   },
   headerContainer:{
     flexDirection:"row",
@@ -20,11 +20,16 @@ export const categorySlideStyles = StyleSheet.create({
       fontFamily: 'MulishBold',
       fontSize: 30,
       color:"white",
-      paddingRight:10
+      paddingRight:10,
+      paddingLeft:30,
+  },
+  iconContainer:{
+    flexDirection:'row',
   },
   icon:{
     marginTop:10,
-    color:'rgba(254,228,152,255)'
+    color:colors.iconColorGrayLight,
+    marginLeft:30
   }
 })
 
@@ -40,7 +45,7 @@ export const categoryButtonStyles = StyleSheet.create({
     paddingRight:20,
     marginRight:15,
     borderRadius:15,
-    backgroundColor:'rgba(50,51,50,255)',
+    backgroundColor:colors.lightBackground,
     
   },
   buttonText:{
@@ -55,7 +60,8 @@ export const categoryButtonStyles = StyleSheet.create({
   },
   scroll:{
     flexDirection:'row',
-    
+    marginTop:15,
+    width:'95%'
 
   }
 
