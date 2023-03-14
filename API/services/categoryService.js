@@ -10,12 +10,19 @@ module.exports = {
   },
 
   async getCategories(from, amount){
-    const [rows] = await pool.query(
-      `SELECT *
-      FROM category
-      LIMIT ${from},${amount}`
+    let sqlSelect = 'SELECT * '
+    let sqlFrom = `FROM category `
+    let sqlWhere=''
+    let sqlLimit=''
+    let sqlOrderby='ORDER BY category_name ASC '
+    if(from!=undefined && amount!=undefined){
+      sqlLimit = `LIMIT ${from},${amount} `
+    }
+    const queryStr = sqlSelect+sqlFrom+sqlWhere+sqlOrderby+sqlLimit
+    const [rows] = await pool.query(queryStr)
+    return rows;
       
-    )
+    
     return rows
   },
   async getCategory(category_name){

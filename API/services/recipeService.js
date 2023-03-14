@@ -27,9 +27,9 @@ module.exports = {
   },
 
   async getRecipes(from, amount,sort_by, order_by, categories, maxDiffDays){
-    sqlSelect = 'SELECT r.*, b.category_name, avgCalif '
-    sqlFrom = `FROM 
-    (SELECT q.recipe_name, q.recipe_user_email, q.recipe_user_name, AVG(calification) as avgCalif
+    let sqlSelect = 'SELECT r.*, b.category_name, avgCalif '
+    let sqlFrom = `FROM 
+    (SELECT q.recipe_name, q.recipe_user_email, q.recipe_user_name, ROUND(AVG(calification),2) as avgCalif
     FROM recipe r INNER JOIN qualify q
     ON r.recipe_name = q.recipe_name
     AND r.user_email = q.recipe_user_email

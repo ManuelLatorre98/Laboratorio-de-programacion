@@ -4,7 +4,6 @@ module.exports ={
   async getAllRecipes(req, res, next){
     try{
       const {from, amount,sort_by, order_by, categories, maxDiffDays, } = req.query
-      
       const recipeRows= await getRecipes(from, amount,sort_by, order_by, categories, maxDiffDays,)
       res.status(200).json(recipeRows)
     }catch(err){
