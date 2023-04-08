@@ -10,16 +10,14 @@ import { calificationStyles } from "./style";
 
 export default function Calification(props){
   const {container, icon, text} = calificationStyles
-  const {avgCalif} = props
-  const dispatch = useDispatch()
-  
+  const {avgCalif}=props
   useEffect(()=>{
 
   },[])
   return(
     <View style = {container}>
       <FontAwesomeIcon icon={faStar} size={20} style={icon}/>
-      <Text style={text}>{avgCalif}</Text>
+      <Text style={text}>{avgCalif||0}</Text>
     </View>
   )
 }

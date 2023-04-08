@@ -3,7 +3,6 @@ import {colors} from '../../Theme/theme'
 export const recipeInfoCardStyles = StyleSheet.create({
   container:{
     width:'100%',
-
     paddingBottom:20,
 
   },

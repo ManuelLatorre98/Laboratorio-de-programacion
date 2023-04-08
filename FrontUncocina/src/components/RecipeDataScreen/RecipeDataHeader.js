@@ -1,29 +1,69 @@
-import { faHeart, faStar } from "@fortawesome/free-regular-svg-icons";
-import { faAngleLeft  } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faAngleLeft, faHeart as fullHeart  } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import Calification from "../Calification/Calification";
-import { headerStyles, recipeDataScreenStyles } from "./styles";
+import { headerStyles } from "./styles";
+import { useSelector } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
+import { useEffect } from "react";
+import { deleteService, postService } from "../../services/apiService";
+import { ENDPOINT_FAV, ENDPOINT_HAVEFAV } from "../../services/routes";
 
 
 export default function RecipeDataHeader(props){
-  const { container, titleContainer, backIcon,iconContainer, favIcon, califIcon, titleText } = headerStyles
-  const {handleMakeCalif} = props
+  const { container, titleContainer, backIcon,favIcon, titleText } = headerStyles
+  const {handleMakeCalif,recipeData, recipes, recipeSelected, token } = props
+  const navigation = useNavigation()
+
+  //SELECTORS
+  const [haveFav, setHaveFav]= useState(false);
+
+  //STATES
+  
+  //METHODS
+  function onPressBack(){
+    navigation.goBack()
+  }
+
+  async function onPressFav(){
+    haveFav ? deleteFavReq() : addFavReq()
+  }
+  async function isFavReq(){
+      const respHaveFav= await postService(`${ENDPOINT_HAVEFAV}`, recipeData, token) 
+      setHaveFav(respHaveFav.data)
+  }
+
+  async function deleteFavReq(){
+    await deleteService(`${ENDPOINT_FAV}`, recipeData, token)
+    setHaveFav(false)
+  }
+
+  async function addFavReq(){
+    await postService(`${ENDPOINT_FAV}`, recipeData, token)
+    setHaveFav(true)
+  }
+
+  useEffect(()=>{
+    isFavReq()
+  },[])
   return(
       <View style={container}>
         <View style={titleContainer}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={onPressBack}>
             <FontAwesomeIcon icon={faAngleLeft} size={25} style={backIcon}/>
           </TouchableOpacity>
           
-          <Text style={titleText} numberOfLines={2}>Maxican potatoes</Text>
+          <Text style={titleText} numberOfLines={2}>{recipes[recipeSelected].recipe_name}</Text>
 
-          <TouchableOpacity>
-            <FontAwesomeIcon icon={faHeart} size={25} style={favIcon}/>
+          <TouchableOpacity onPress={onPressFav}>
+            {!haveFav&& <FontAwesomeIcon icon={faHeart} size={25} style={favIcon}/>}
+            {haveFav&& <FontAwesomeIcon icon={fullHeart} size={25} style={favIcon}/>}
           </TouchableOpacity>
         </View>
         <TouchableOpacity onPress={handleMakeCalif}>
-          <Calification />
+          <Calification avgCalif={recipes[recipeSelected].avgCalif}/>
         </TouchableOpacity>
       </View>
   )

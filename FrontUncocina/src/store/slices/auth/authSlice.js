@@ -2,9 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { postService } from "../../../services/apiService";
 import { ENDPOINT_AUTH } from "../../../services/routes";
 const initialState = {
-  user_email: "",
-  user_name: "",
-  token: "",
+  user_email: "manulatorre@gmail.com",
+  user_name: "ManuelL",
+  token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzEyODU5OTl9.qhZSht5vf8RTHtSpA8g3gNZOz4pVPly-CLgw29AJRQs",
   loading: false,
   error: false,
   errorMsg: "",

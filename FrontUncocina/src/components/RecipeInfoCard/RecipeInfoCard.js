@@ -9,12 +9,13 @@ import HeaderRecipeInfoCard from './HeaderRecipeInfoCard';
 import { recipeDataScreenStyles } from '../RecipeDataScreen/styles';
 import {colors} from '../../Theme/theme'
 import IngredientsInfoCard from './IngredientsInfoCard';
+import { useSelector } from 'react-redux';
 
 
 export default function RecipeInfoCard(props){
   const { container, stepListContainer, ingredientsTitle} = recipeInfoCardStyles
   const {onPressShowIngredients, showIngredients} = props
-
+  const { recipes, recipeSelected } = useSelector(state => state.recipes)
 
   
   const sheetRef = useRef(null);
@@ -25,7 +26,7 @@ export default function RecipeInfoCard(props){
     <ScrollView style={container} contentContainerStyle={{alignItems:'center'} }>
       
       <Image source={{
-        uri:'https://res.cloudinary.com/dqzmhh9qh/image/upload/v1674839000/uncocina/hamburguesaG_zmrwra.jpg'
+        uri:recipes[recipeSelected].imageURL
         }} 
         style={recipeDataScreenStyles.image}
         />
@@ -33,8 +34,9 @@ export default function RecipeInfoCard(props){
           <HeaderRecipeInfoCard  
             onPressShowIngredients={onPressShowIngredients}
             showIngredients={showIngredients}
+            estimatedTime={recipes[recipeSelected].estimatedTime}
           />
-          <StepsList />
+          <StepsList steps={recipes[recipeSelected].steps}/>
         </View>
     </ScrollView>
         

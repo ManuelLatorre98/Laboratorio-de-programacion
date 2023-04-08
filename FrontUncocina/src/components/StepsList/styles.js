@@ -3,6 +3,7 @@ import {colors} from '../../Theme/theme'
 export const stepsListStyle = StyleSheet.create({
   scrollContainer:{
     width:'100%',
+
   },
 
 })

@@ -1,23 +1,31 @@
 import axios from "axios";
-const fetcher = (method, endPointURL, body) => {
+import { useSelector } from "react-redux";
+const fetcher = (method, endPointURL, body, token) => {
+  
   const apiService = axios.create({
     baseURL: process.env.BASE_API_URL
   })
-  /* const token = 'asd' //Esto deberia sacarlo de redux
 
-  if(token){
-    apiService.defaults.headers.common['Authorization'] = `Bearer ${token}`;//Cambi
-  } */
-  
-  //PUEDEN SER NECESARIO MANIPULAR EL METODO PARA LOS FORMULARIOS
+  apiService.defaults.headers.common['Authorization'] = `Bearer ${token}`
   return apiService[method](endPointURL, body)
 }
 
-export const postService = (endPointURL, data) => {
-  return fetcher('post', endPointURL, data)
+export const postService = (endPointURL, data, token) => {
+  return fetcher('post', endPointURL, data, token)
 }
 
-export const getQueryService = (endPointURL, data) => {
-  const params = {params: data}
-  return fetcher('get', endPointURL, params)
+export const putService = (endPointURL, data, token) => {
+  return fetcher('put', endPointURL, data, token)
 }
+
+export const getQueryService = (endPointURL, data, token) => {
+  const params = {params: data}
+  return fetcher('get', endPointURL, params,token)
+}
+
+export const deleteService = (endPointURL, data, token) => {
+  return fetcher('delete', endPointURL, {data:data},token)
+}
+
+
+

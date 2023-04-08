@@ -38,8 +38,6 @@ export default function HomeScreen() {
         trigger(['password'])
       }
     }
-
-    
     dispatch(resetAuth())
     
   },[error,success,trigger])

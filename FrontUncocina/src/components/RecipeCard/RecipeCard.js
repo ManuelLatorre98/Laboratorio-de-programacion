@@ -5,14 +5,18 @@ import { toggleShow } from "../../store/slices/navBar/navBar";
 import Calification from "../Calification/Calification";
 import DurationLabel from "../DurationLabel/DurationLabel";
 import { recipeCardStyles } from "./styles";
+import { setSelected } from "../../store/slices/recipes/recipesSlice";
+import { useNavigation } from "@react-navigation/native";
 
 
 export default function RecipeCard(props){
   const {container, recipeText, infoContainer, image} = recipeCardStyles
-  const  {recipe_name, avgCalif, imageURL, estimatedTime} = props
-
+  const  {recipe_name, avgCalif, imageURL, estimatedTime, index} = props
+  const dispatch = useDispatch()
+  const navigation= useNavigation()
   function onPress(){
-   
+    dispatch(setSelected(index))
+    navigation.navigate('RecipesData')
   }
 
   return(

@@ -6,6 +6,7 @@ export const recipeDataScreenStyles = StyleSheet.create({
   },
   scrollContainer:{
     backgroundColor: colors.darkBackground,
+    height:'100%'
   },
   image:{
     width:200,

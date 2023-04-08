@@ -2,13 +2,21 @@ import { StyleSheet } from "react-native";
 import {colors} from '../../Theme/theme'
 export const recipesStyles = StyleSheet.create({
   container:{
-    flex: 1,
+    flex:1,
     backgroundColor: colors.darkBackground,
-    alignItems: 'center',
+    height:'100%',
+    
   },
-  recipeScroll:{
-    width:'95%',
-    marginTop:20
+  recipes:{
+    width:'95%', 
+    alignSelf:'center',
+  }, 
+  noRecipesText:{
+    fontFamily: 'MulishMedium',
+    fontSize: 20,
+    color:"gray",
+    textAlign:'center',
+    marginTop:20,
   }
 })
 

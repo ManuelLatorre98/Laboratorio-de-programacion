@@ -8,7 +8,7 @@ import ItemSelector from "./ItemSelector";
 import { selectorStyle } from "./styles";
 
 export default function Selector(props){
-  const {titleText, items, selectedItems, handleCloseItems, handleSelectItem} = props
+  const {titleText, items, selectedItems, handleCategories, handleSelectItem} = props
   const {container, itemContainer, titleContainer, exitIcon, title,exit, itemListContainer} = selectorStyle
 
   //RENDER COMPONENTS
@@ -18,16 +18,15 @@ export default function Selector(props){
       itemName={item}
       selectedItem={selectedItems.includes(item)}
       handleSelectItem={handleSelectItem}
-      itemIndex={i}
     />
 
   })  
   return(
-      <TouchableOpacity onPress={handleCloseItems} style={container}>
+      <TouchableOpacity onPress={handleCategories} style={container}>
         <TouchableOpacity activeOpacity={1} style={itemContainer}>
           <View style={titleContainer}>
             <Text style={title}>{titleText}</Text>
-            <TouchableOpacity onPress={handleCloseItems} style={exit}>
+            <TouchableOpacity onPress={handleCategories} style={exit}>
               <FontAwesomeIcon icon={faXmark} size={25} style={exitIcon} />
             </TouchableOpacity>
           </View>

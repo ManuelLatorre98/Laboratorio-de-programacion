@@ -11,7 +11,7 @@ export default function ItemSelector(props){
   const {itemContainer, itemText,selectIcon} = itemSelectorStyle
 
   return(
-      <TouchableOpacity onPress={()=>handleSelectItem(itemIndex)} style={itemContainer}>
+      <TouchableOpacity onPress={()=>handleSelectItem(itemName)} style={itemContainer}>
         <Text style={itemText}>{itemName}</Text>
         {selectedItem && <FontAwesomeIcon icon={faCircleDot} size={20} style={selectIcon}/>}
       </TouchableOpacity>

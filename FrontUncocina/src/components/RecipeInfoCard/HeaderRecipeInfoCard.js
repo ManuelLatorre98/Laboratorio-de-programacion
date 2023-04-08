@@ -11,7 +11,7 @@ import { faRectangleList } from "@fortawesome/free-regular-svg-icons";
 
 export default function HeaderRecipeInfoCard(props){
   const { header, title, rightContainer, icon} = headerRecipeInfoCardStyles
-  const { onPressShowIngredients, showIngredients } = props
+  const { onPressShowIngredients, showIngredients, estimatedTime } = props
   return(
       <View style={header}>
         <Text style={title}>Receta</Text>
@@ -20,7 +20,7 @@ export default function HeaderRecipeInfoCard(props){
           {showIngredients && <FontAwesomeIcon icon={faWheatAwnCircleExclamation} size={30} style = {icon}/>}
           {!showIngredients && <FontAwesomeIcon icon={faWheatAwn} size={25} style = {icon}/>}
         </TouchableOpacity> 
-        <DurationLabel />
+        <DurationLabel estimatedTime={estimatedTime}/>
           
         </View>
       </View>

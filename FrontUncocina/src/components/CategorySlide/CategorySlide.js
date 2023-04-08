@@ -21,7 +21,7 @@ export default function CategorySlide(props){
       key={'category'+i}
       categoryName= {category}
       handleSelectCategory={handleSelectCategory}
-      itemIndex={i}
+      itemId={category}
     />
   })  
 

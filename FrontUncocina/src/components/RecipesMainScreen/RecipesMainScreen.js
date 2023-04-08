@@ -1,29 +1,37 @@
 import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategories } from "../../store/slices/categories/categories";
 import { setIsShow, toggleShow } from "../../store/slices/navBar/navBar";
-import { getAllRecipes } from "../../store/slices/recipes/recipesSlice";
+import { getAllRecipes, fullReset, resetRecipes } from "../../store/slices/recipes/recipesSlice";
 import CategorySlide from "../CategorySlide/CategorySlide";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import Selector from "../Selector/Selector";
 import HelloSlide from "./HelloSlide";
 import { recipesStyles } from "./styles";
+import BackToTopFlatListButton from "../BackToTopFlatListButton/BackToTopFlatListButton";
+import { useIsFocused } from "@react-navigation/native";
 
-export default function RecipesMainScreen(){
+export default function RecipesMainScreen(props){
+  //PROPS
+  const {onDispatch, textHeader} = props
   //STATES
   const [currentOffset, setCurrentOffset] = useState(0)
   const [lastOffset, setLastOffset] = useState(0)
-  const [pagination, setPagination] = useState({from:0, amount:100})
+  const [pagination, setPagination] = useState({from:0, amount:10})
   
   const [showSelectCategories, setShowSelectCategories] = useState(false)
   const [orderBy, setOrderBy] = useState('desc')
   const [selectedCategories, setSelectedCategories] = useState([])
+  const[catChanged, setCatChanged] =useState(false)
+  const[orderByChanged, setOrderByChanged]=useState(false)
+  const[showBackToTop, setShowBackToTop] = useState(false)
 
   //SELECTORS
   const { show } = useSelector(state => state.navBar)
   const dispatch = useDispatch()
-  const {recipes} = useSelector((state) => state.recipes)
+  const {recipes, isEndList} = useSelector((state) => state.recipes)
   const { categories } = useSelector(state => state.categories)
 
   //HANDLE EVENTS
@@ -33,33 +41,40 @@ export default function RecipesMainScreen(){
     setLastOffset(currentOffset)
     if(dif<0){
       if(!show) dispatch(setIsShow(true))
+      if(!showBackToTop) setShowBackToTop(true)
     }else if(dif>0){
       if(show) dispatch(setIsShow(false))
+      if(showBackToTop) setShowBackToTop(false)
     }
   }
 
+  useEffect(()=>{//This is to detect when the scrolls its high enough and hide backToTopButton
+    if(currentOffset<300 && showBackToTop)setShowBackToTop(false)
+  },[currentOffset])
+
   function handleOrderBy(){
     setOrderBy(prevOrder => prevOrder=='desc'? 'asc' : 'desc')
+    setOrderByChanged(true)
+    dispatch(fullReset())
+    resetPagination()
   }
 
   function handleCategories(){//Manages categories button
-    if(show) dispatch(setIsShow(false))
-    setShowSelectCategories(true)
-  }//JUNTAR CON CLOSE CATEGORIES. ARREGLAR VISTA EN BLANCO DE CUANDO NO HAY RECIPES
-
-  function handleCloseCategories(){//Manages the selection of categories and close the Selector
-    setShowSelectCategories(false)
-    if(!show) dispatch(setIsShow(true))
+    show ? dispatch(setIsShow(false)) : dispatch(setIsShow(true))
+    setShowSelectCategories(!showSelectCategories)
   }
 
-  function handleSelectCategory(categoryIndex){
+  function handleSelectCategory(categoryName){
+    setCatChanged(true)
+    dispatch(fullReset())
+    resetPagination()
     setSelectedCategories(prevSelected => {
       const newSelected= [...prevSelected]
-      if(newSelected.includes(categories[categoryIndex].category_name)){ //Removes from selected
-        const index= newSelected.indexOf(categories[categoryIndex].category_name)
+      if(newSelected.includes(categoryName)){ //Removes from selected
+        const index= newSelected.indexOf(categoryName)
         newSelected.splice(index, 1);
       }else{
-        newSelected.push(categories[categoryIndex].category_name)
+        newSelected.push(categoryName)
       }
       return newSelected
     })
@@ -71,6 +86,12 @@ export default function RecipesMainScreen(){
     return categoriesNames
   }
   
+  let listViewRef //Reference to flatList
+  function backToTopOnPress(){
+    listViewRef.scrollToOffset({offset:0, animated:true})
+   
+  }
+
   //RENDER COMPONENTS
   const recipeElements = recipes.map((recipe, i)=>{
     return <RecipeCard 
@@ -82,44 +103,116 @@ export default function RecipesMainScreen(){
     />
   })   
 
+  const renderTopElements=()=>{
+    return (
+      <View>
+        <HelloSlide textHeader={textHeader}/>
+        <CategorySlide 
+          orderBy={orderBy}
+          handleOrderBy={handleOrderBy} 
+          handleCategories={handleCategories} 
+          selectedCategories={selectedCategories} 
+          handleSelectCategory={handleSelectCategory}
+          categories={categories}
+        />
+      </View>
+    )
+  }
+  const renderElements= ({item})=>{
+    const index=recipes.indexOf(item)
+    return (
+    <View style={recipesStyles.recipes}>
+      <RecipeCard 
+        recipe_name={item.recipe_name} 
+        avgCalif={item.avgCalif ==null? 0: item.avgCalif}
+        imageURL={item.imageURL}
+        estimatedTime={item.estimatedTime}
+        index={index}
+      />
+    </View>
+    )
+  }
+
+  const renderEmptyElements=()=>{
+    return(
+      <Text style={recipesStyles.noRecipesText}>No existen recetas</Text>
+    )
+
+  }
+
+
+  //PAGINATION
+  const handleLoadMore = ()=>{
+    if(!isEndList && !catChanged && !orderByChanged){
+      setPagination(prevPagination=>{
+        return {
+          from:prevPagination.from+prevPagination.amount,
+          amount:prevPagination.amount
+        }
+      })
+    }
+    setOrderByChanged(false)
+    setCatChanged(false)
+    
+  }
+
+  const resetPagination=()=>{
+    setPagination((prevPagination)=>{
+      return {
+        from:0,
+        amount:prevPagination.amount
+      }
+    })
+  }
+
+ 
+
   //API
   useEffect(()=>{
+    if(!show) dispatch(setIsShow(true))
     dispatch(getAllCategories()) //There will not be many categories, so I get them all when load the page
   },[])
 
-  useEffect(()=>{//INVESTIGAR PAGINATION CUANDO LLEGA ABAJO DEL TODO
-    if(!show) dispatch(setIsShow(true))
-    dispatch(getAllRecipes(
-      {
-        from:pagination.from,
-        amount:pagination.amount,
-        sort_by:"creationDate",
-        order_by:orderBy, 
-        categories:selectedCategories,
-      }
-    ))
-  },[pagination, orderBy, selectedCategories])
+  useEffect(()=>{
+    onDispatch({
+      from:pagination.from,
+      amount:pagination.amount,
+      sort_by:"creationDate",
+      order_by:orderBy, 
+      categories:selectedCategories,
+    })
+
+  },[pagination])
+
+  
   return(
-    <View>
-      <ScrollView onScroll={onScroll}>
-        <View style = {recipesStyles.container}>
-          <HelloSlide />
-          <CategorySlide orderBy={orderBy} handleOrderBy={handleOrderBy} handleCategories={handleCategories} selectedCategories={selectedCategories} handleSelectCategory={handleSelectCategory}/>
-          <View style = {recipesStyles.recipeScroll}>
-            {recipeElements}
-          </View>
-        </View>
-        
-      </ScrollView>
+    <View style={recipesStyles.container}>
+          <FlatList 
+            ref={(ref)=>listViewRef=ref}
+            nestedScrollEnabled
+            onScroll={onScroll}
+            data={recipes}
+            renderItem={renderElements}
+            ListEmptyComponent={renderEmptyElements}
+            ListHeaderComponent={renderTopElements}
+            keyExtractor={(item,index)=> index.toString()}
+            onEndReached={handleLoadMore}
+            onEndReachedThreshold={0.03}
+       
+          />
+
       {showSelectCategories && 
         <Selector 
-          selectedItems= {selectedCategories}
           titleText={'Categorías'} 
           items={getCategoriesNames()} 
-          handleCloseItems={handleCloseCategories}
+          selectedItems= {selectedCategories}
+          handleCategories={handleCategories}
           handleSelectItem={handleSelectCategory}
         />
       }
+      {showBackToTop && <BackToTopFlatListButton 
+        backToTopOnPress={backToTopOnPress}
+      />}
     </View>
   )
 }

@@ -32,8 +32,9 @@ export default function NavButton(props){
       setIconStyle(navIconSelected)
     }else{
       setIconStyle(navIconNotSelected)
-    }
+    }    
   },[selectedButton])
+
   return(
     <TouchableOpacity style={navBarStyles .navButton} onPress={onPress}>
       <FontAwesomeIcon icon={getIcon()} size={25} style={iconStyle}/>

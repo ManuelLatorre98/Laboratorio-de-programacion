@@ -9,6 +9,9 @@ import RegisterScreen from './Auth/RegisterScreen';
 import RecipesMainScreen from './RecipesMainScreen/RecipesMainScreen';
 import RecipeDataScreen from './RecipeDataScreen/RecipeDataScreen';
 import { useEffect } from 'react';
+import AllRecipesScreen from './AllRecipesScreen/AllRecipesScreen';
+import FavScreen from './FavScreen/FavScreen';
+import AddRecipeScreen from './AddRecipeScreen/AddRecipeScreen';
 export default function IndexApp() {
   
   const [fontsLoaded] = useFonts({
@@ -30,22 +33,35 @@ export default function IndexApp() {
     <NavigationContainer onScroll={onScroll}>
       <Stack.Navigator screenOptions={{headerShown:false}}>
       <Stack.Screen
-          name="RecipesMain"
-          component={RecipesMainScreen}
+          name="AddRecipe"
+          component={AddRecipeScreen}
         />
+      <Stack.Screen
+          name="RecipesMain"
+          component={AllRecipesScreen}
+        />
+      <Stack.Screen
+          name="Fav"
+          component={FavScreen}
+        />
+        
+      
+      <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+        />
+      <Stack.Screen
+          name="Register"
+          component={RegisterScreen}
+        />
+      
       <Stack.Screen
             name="RecipesData"
             component={RecipeDataScreen}
         />
-        <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-        />
-        <Stack.Screen
-          name="Register"
-          component={RegisterScreen}
-        />
         
+        
+    
         
         
 
