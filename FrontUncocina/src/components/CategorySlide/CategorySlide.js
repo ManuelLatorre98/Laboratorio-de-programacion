@@ -1,7 +1,5 @@
-import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { faArrowDownShortWide, faArrowUpShortWide, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { useEffect } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import CategoryButton from "./CategoryButton";
@@ -10,7 +8,6 @@ import { categoryButtonStyles, categorySlideStyles } from "./styles";
 
 
 export default function CategorySlide(props){
-  const { user_name } = useSelector(state => state.auth)
   const {headerContainer, categoryText, icon, iconContainer }=categorySlideStyles
   const {orderBy, handleOrderBy, handleCategories, selectedCategories, handleSelectCategory} = props
   const dispatch = useDispatch()

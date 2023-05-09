@@ -16,6 +16,7 @@ CREATE TABLE recipe (
   estimatedTime INTEGER NOT NULL,
   creationDate DATE NOT NULL,
   difficulty VARCHAR(10) NOT NULL DEFAULT 'Media', CHECK (difficulty IN ('Facil', 'Media', 'Dificil')), 
+  ingredients JSON NOT NULL,
   FOREIGN KEY (user_email, user_name) REFERENCES user(user_email, user_name) ON UPDATE CASCADE ON DELETE CASCADE,
   PRIMARY KEY (recipe_name, user_email, user_name)
 );

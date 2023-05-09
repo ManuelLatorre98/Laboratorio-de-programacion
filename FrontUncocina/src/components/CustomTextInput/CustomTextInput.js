@@ -1,14 +1,19 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Controller } from "react-hook-form"
 import { Text, TextInput, TouchableOpacity, View } from "react-native"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { textInputStyles} from "./styles"
+import { setIsShow } from "../../store/slices/navBar/navBar"
+
 
 export default function CustomTextInput(props) {
   const {control, name, rules={},maxLength, placeholder, hideText, isEmail, isPass, isUserName} = props
   const [showPass, setShowPass] = useState(hideText || false)
+  const { show } = useSelector((state) => state.navBar)
+  const dispatch = useDispatch()
+
   function changeShowPass (){
     setShowPass(prevShowPass => !prevShowPass)
   }
@@ -24,6 +29,9 @@ export default function CustomTextInput(props) {
               value={value}
               onChangeText={onChange}
               onBlur={onBlur}
+              onFocus={()=>{
+                if(show) dispatch(setIsShow(false))}
+              }
               email={isEmail}
               username={isUserName}
               password={isPass}

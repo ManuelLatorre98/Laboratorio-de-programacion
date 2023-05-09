@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import AllRecipesScreen from './AllRecipesScreen/AllRecipesScreen';
 import FavScreen from './FavScreen/FavScreen';
 import AddRecipeScreen from './AddRecipeScreen/AddRecipeScreen';
+import UserScreen from './UserScreen/UserScreen';
 export default function IndexApp() {
   
   const [fontsLoaded] = useFonts({
@@ -21,6 +22,7 @@ export default function IndexApp() {
     MulishMedium: require('../../assets/fonts/Mulish-Medium.ttf')
   })
   const {show} = useSelector((state) => state.navBar)
+  const {token} = useSelector((state) => state.auth)
   const Stack = createNativeStackNavigator()
 
   if(!fontsLoaded) return null
@@ -32,38 +34,42 @@ export default function IndexApp() {
   return (
     <NavigationContainer onScroll={onScroll}>
       <Stack.Navigator screenOptions={{headerShown:false}}>
-      <Stack.Screen
-          name="AddRecipe"
-          component={AddRecipeScreen}
-        />
-      <Stack.Screen
-          name="RecipesMain"
-          component={AllRecipesScreen}
-        />
-      <Stack.Screen
-          name="Fav"
-          component={FavScreen}
-        />
-        
-      
-      <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-        />
-      <Stack.Screen
-          name="Register"
-          component={RegisterScreen}
-        />
-      
-      <Stack.Screen
-            name="RecipesData"
-            component={RecipeDataScreen}
-        />
-        
-        
-    
-        
-        
+      {token?(
+        <>
+          <Stack.Screen
+                name="RecipesMain"
+                component={AllRecipesScreen}
+            />
+          <Stack.Screen
+                name="AddRecipe"
+                component={AddRecipeScreen}
+            />
+            <Stack.Screen
+                name="Fav"
+                component={FavScreen}
+              />
+            <Stack.Screen
+                name="UserScreen"
+                component={UserScreen}
+            />
+            <Stack.Screen
+                  name="RecipesData"
+                  component={RecipeDataScreen}
+            />
+          </>
+        ): (
+          <>
+            <Stack.Screen
+              name="Home"
+              component={HomeScreen}
+            />
+            <Stack.Screen
+                  name="Register"
+                  component={RegisterScreen}
+                />
+          </>
+        )
+      }
 
       </Stack.Navigator>
       {show && <NavBar />}

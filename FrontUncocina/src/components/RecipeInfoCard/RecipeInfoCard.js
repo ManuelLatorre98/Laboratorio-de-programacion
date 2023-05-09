@@ -1,27 +1,19 @@
 import 'react-native-gesture-handler';
-import BottomSheet, {BottomSheetScrollView}  from '@gorhom/bottom-sheet';
-import { GestureHandlerRootView, ScrollView } from "react-native-gesture-handler";
-import { Image, Text, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import { Image, View } from "react-native";
 import { recipeInfoCardStyles } from "./styles";
-import { useRef, useState } from 'react';
 import StepsList from '../StepsList/StepsList';
 import HeaderRecipeInfoCard from './HeaderRecipeInfoCard';
 import { recipeDataScreenStyles } from '../RecipeDataScreen/styles';
-import {colors} from '../../Theme/theme'
-import IngredientsInfoCard from './IngredientsInfoCard';
 import { useSelector } from 'react-redux';
 
 
 export default function RecipeInfoCard(props){
-  const { container, stepListContainer, ingredientsTitle} = recipeInfoCardStyles
+  const { container, stepListContainer} = recipeInfoCardStyles
   const {onPressShowIngredients, showIngredients} = props
   const { recipes, recipeSelected } = useSelector(state => state.recipes)
 
-  
-  const sheetRef = useRef(null);
 
-  // variables
-  const snapPoints = [40,'20%','40%','60%','100%'];
   return(
     <ScrollView style={container} contentContainerStyle={{alignItems:'center'} }>
       
@@ -39,7 +31,5 @@ export default function RecipeInfoCard(props){
           <StepsList steps={recipes[recipeSelected].steps}/>
         </View>
     </ScrollView>
-        
-
   )
 }

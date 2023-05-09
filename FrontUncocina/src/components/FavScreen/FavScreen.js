@@ -1,7 +1,5 @@
 import { useDispatch,} from "react-redux";
-
-import { fullReset, getAllRecipes, getFavRecipes } from "../../store/slices/recipes/recipesSlice";
-
+import { fullReset, getFavRecipes } from "../../store/slices/recipes/recipesSlice";
 import RecipesMainScreen from "../RecipesMainScreen/RecipesMainScreen";
 import { useEffect } from "react";
 import { useIsFocused } from "@react-navigation/native";

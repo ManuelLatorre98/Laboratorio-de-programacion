@@ -1,0 +1,64 @@
+\section{EO}
+\begin{lstlisting}[style=java,caption= Metodo ordenarPorConteoChar]
+  public class M { 
+  public int a, b;
+  static int c = 9; 
+ \end{lstlisting}
+
+ \begin{figure}[!htb]
+  \centering
+  \includegraphics[width=16cm, scale=1]{Images/Punto2/Marcado.png}
+  \caption{Estado de memoria y desarrollo de proceso de marcado}
+  \label{fig:marcado}
+\end{figure}
+
+
+
+
+
+ \begin{lstlisting}[
+  language=SQL,
+  showspaces=false,
+  basicstyle=\ttfamily,
+  numbers=left,
+  numberstyle=\tiny,
+  commentstyle=\color{gray}
+]
+a = LOAD 'data' USING BinStorage AS (user);
+b = GROUP a BY user;
+/* Now we are ready to loop */
+c = FOREACH b GENERATE COUNT(a) AS cnt;
+d = ORDER c BY cnt;
+\end{lstlisting}
+
+
+\begin{tcolorbox}
+  \begin{center}
+   \textbf{Dado un rompecabezas Battleships $\langle I, C, R, F\rangle$ \\ ¿Tiene este rompecabezas una solución?}
+  \end{center}
+\end{tcolorbox}
+
+
+//Tablas
+\begin{figure}[htb]
+  \centering
+  \scriptsize %%tamaño fuente
+  \small
+  \begin{tabular}{| p{4.5 cm} | p{12 cm} |}
+  \hline
+  \textbf{Nombre} & asdasd \\
+  \hline
+  \textbf{Actores}  & asdasd \\
+  \hline
+  \textbf{Precondiciones} & asdasd \\
+  \hline
+  \textbf{Postcondiciones} & asdasda \\
+  \hline
+  \textbf{Escenario básico} & Fila 2, Columna 2 \\
+  \hline
+  \textbf{Escenarios alternativos} & Fila 2, Columna 2 \\
+  \hline
+  \textbf{escenarios de excepción} & Fila 2, Columna 2 \\
+  \hline
+  \end{tabular}
+\end{figure}

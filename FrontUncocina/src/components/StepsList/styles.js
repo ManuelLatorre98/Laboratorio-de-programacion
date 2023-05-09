@@ -5,7 +5,6 @@ export const stepsListStyle = StyleSheet.create({
     width:'100%',
 
   },
-
 })
 
 export const stepTitleStyle = StyleSheet.create({

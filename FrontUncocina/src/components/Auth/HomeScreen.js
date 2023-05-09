@@ -2,15 +2,14 @@ import { useEffect} from 'react';
 import { useForm } from 'react-hook-form';
 import { ScrollView, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import {commonStyles} from '../commonStyles';
 import { loginUser, resetAuth} from '../../store/slices/auth/authSlice';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import CustomTextInput from '../CustomTextInput/CustomTextInput';
 import Logo from './Logo';
-import NavBar from '../NavBar/NavBar';
 import RedirectButton from '../RedirectButton/RedirectButton';
 import { useNavigation } from '@react-navigation/native';
-import { setIsShow } from '../../store/slices/navBar/navBar';
+import { setIsShow} from '../../store/slices/navBar/navBar';
+import { homeStyles } from './styles';
 
 export default function HomeScreen() {
   const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
@@ -45,7 +44,7 @@ export default function HomeScreen() {
     <ScrollView 
     showsVerticalScrollIndicator={false}
     contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
-      <View style={commonStyles.container}>
+      <View style={homeStyles.container}>
         <Logo/>
         
         <CustomTextInput

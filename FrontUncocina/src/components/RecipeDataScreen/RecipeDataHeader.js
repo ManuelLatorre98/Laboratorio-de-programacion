@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { Text, TouchableOpacity, View } from "react-native";
 import Calification from "../Calification/Calification";
 import { headerStyles } from "./styles";
-import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { useEffect } from "react";

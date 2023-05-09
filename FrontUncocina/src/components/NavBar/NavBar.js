@@ -11,20 +11,16 @@ export default function NavBar(){
   useEffect(()=>{
     switch (selectedButton){
       case 1:
-        console.log("recipes")
         navigation.navigate("RecipesMain")
         break
       case 2:
-        console.log("fav")
         navigation.navigate("Fav")
         break
       case 3:
-        console.log("add recipe")
         navigation.navigate("AddRecipe")
         break
       case 4:
-        console.log("account")
-        //navigation.navigate("FavScreen")
+        navigation.navigate("UserScreen")
         break
     } 
   },[selectedButton])

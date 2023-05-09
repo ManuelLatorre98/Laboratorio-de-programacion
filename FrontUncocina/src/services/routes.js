@@ -1,8 +1,8 @@
 /* 
-  Trabajo local: 10.0.2.2
-  Ip escritorio: 192.168.0.203 
+  Trabajo local: 10.0.2.2 
+  Ip escritorio: 192.168.0.240 change in api to
 */ 
-const BASE_API_URL = 'http://10.0.2.2:3000/api' 
+const BASE_API_URL = 'http://192.168.0.240:3000/api' 
 
 export const ENDPOINT_AUTH = `${BASE_API_URL}/auth`
 

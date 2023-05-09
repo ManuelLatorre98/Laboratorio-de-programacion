@@ -1,12 +1,11 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import DurationLabel from "../DurationLabel/DurationLabel";
 
-import { headerRecipeInfoCardStyles, recipeInfoCardStyles } from "./styles";
+import { headerRecipeInfoCardStyles } from "./styles";
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faEgg, faHeart, faPepperHot, faWheatAwn, faWheatAwnCircleExclamation } from '@fortawesome/free-solid-svg-icons';
-import { faRectangleList } from "@fortawesome/free-regular-svg-icons";
+import { faWheatAwn, faWheatAwnCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function HeaderRecipeInfoCard(props){
@@ -21,7 +20,6 @@ export default function HeaderRecipeInfoCard(props){
           {!showIngredients && <FontAwesomeIcon icon={faWheatAwn} size={25} style = {icon}/>}
         </TouchableOpacity> 
         <DurationLabel estimatedTime={estimatedTime}/>
-          
         </View>
       </View>
 

@@ -7,6 +7,7 @@ module.exports ={
       const recipeRows= await getRecipes(from, amount,sort_by, order_by, categories, maxDiffDays,)
       res.status(200).json(recipeRows)
     }catch(err){
+      console.log(err)
       next(err)
     }
   },

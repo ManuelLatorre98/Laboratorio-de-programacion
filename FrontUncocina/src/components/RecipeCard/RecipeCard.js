@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleShow } from "../../store/slices/navBar/navBar";
+import { useDispatch } from "react-redux";
 import Calification from "../Calification/Calification";
 import DurationLabel from "../DurationLabel/DurationLabel";
 import { recipeCardStyles } from "./styles";

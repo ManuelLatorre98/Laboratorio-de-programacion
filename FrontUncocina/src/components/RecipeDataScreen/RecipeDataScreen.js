@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import RecipeDataHeader from "./RecipeDataHeader";
 import { recipeDataScreenStyles } from "./styles";
 import RecipeInfoCard from '../RecipeInfoCard/RecipeInfoCard';
 import { useDispatch, useSelector } from "react-redux";
-import Animated, { useAnimatedScrollHandler, useSharedValue } from "react-native-reanimated";
 import IngredientsInfoCard from "../RecipeInfoCard/IngredientsInfoCard";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import CalifScreen from "./CalifScreen";
 import { setIsShow } from "../../store/slices/navBar/navBar";
 import { ENDPOINT_CALIF, ENDPOINT_CALIF_ACTUAL } from "../../services/routes";
 import { getQueryService, postService, putService } from "../../services/apiService";
-import { updateRecipeAvgCalif, updateRecipes } from "../../store/slices/recipes/recipesSlice";
-import { useIsFocused } from "@react-navigation/native";
+import { updateRecipeAvgCalif } from "../../store/slices/recipes/recipesSlice";
 
 export default function RecipeDataScreen(){
   const { container, scrollContainer} = recipeDataScreenStyles
@@ -117,9 +115,9 @@ export default function RecipeDataScreen(){
           onPressShowIngredients={onPressShowIngredients}
           showIngredients={showIngredients}/>
         </ScrollView>
-        {showIngredients && <IngredientsInfoCard />}
+        {showIngredients && <IngredientsInfoCard ingredients={recipes[recipeSelected].ingredients}/>}
       </GestureHandlerRootView >
       {makeCalif && <CalifScreen handleMakeCalif={handleMakeCalif} userCalif={userCalif} handleChangeCalif={handleChangeCalif}/>}
     </View>
-  )//NO ACTUALIZA DINAMICAMENTE LA CALIFICACION, NECESITARIA USEEFFECT PARA DETECTAR CUANDO SE ENVIA UNA RECIPE Y AHI ACTUALIZAR EL VALOR. TAMBIEN TENGO QUE INVESTIGAR COMO RENDERIZAR DE VUELTA LA PAGINA CUANDO HAGO BACK
+  )
 }

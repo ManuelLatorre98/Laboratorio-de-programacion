@@ -9,7 +9,7 @@ export const textInputStyles = StyleSheet.create({
   submitTextInput:{
     backgroundColor: colors.lightBackground,
     width: '100%',
-    height: 50,
+    minHeight: 50,
     borderRadius: 15,
     fontFamily: 'MulishRegular',
     fontSize: 20,
@@ -32,11 +32,34 @@ export const textInputStyles = StyleSheet.create({
   textInputIcon:{
     position:'absolute',
     right:0,
-    paddingTop:25,
-    paddingRight:20
+    top:35,
+    paddingRight:20,
+    
+
     
   },
   icon:{
     color:colors.iconColorGrayLight
   },
+})
+
+export const dynamicInputStyles = StyleSheet.create({
+  container:{
+    width:'80%',
+  },
+  fieldContainer:{
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'flex-start',
+  },
+  field:{
+    height:'auto',
+
+  },
+  removeField:{
+    color:'red',
+    alignSelf:'center',
+    marginTop:25,
+    marginLeft:5
+  }
 })

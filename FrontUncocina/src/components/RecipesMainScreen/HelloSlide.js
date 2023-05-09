@@ -1,14 +1,12 @@
 import { useEffect } from "react";
 import { Image, Text, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
-import { commonStyles } from "../commonStyles";
+import { useSelector } from "react-redux";
 import { helloSlideStyles } from "./styles";
 
 
 
 export default function HelloSlide(props){
   const { user_name } = useSelector(state => state.auth)
-  const dispatch = useDispatch()
   const {textHeader}=props
   useEffect(()=>{
   
@@ -19,7 +17,7 @@ export default function HelloSlide(props){
     
       { textHeader===undefined && 
         <View>
-          <Text style={helloSlideStyles.userText} numberOfLines={1}>{`Hola Alumno unco${user_name}`}</Text>
+          <Text style={helloSlideStyles.userText} numberOfLines={1}>{`Hola ${user_name}`}</Text>
           <Text style={helloSlideStyles.messageText}>Que vas a cocinar hoy?</Text>
         </View>
       }
@@ -34,7 +32,7 @@ export default function HelloSlide(props){
       
       </View>
       <Image 
-          source={{ uri:'https://res.cloudinary.com/dqzmhh9qh/image/upload/v1674839124/uncocina/Uncocina_gon7t0.png'}}
+          source={{ uri:'https://firebasestorage.googleapis.com/v0/b/uncocina.appspot.com/o/recipes%2FUncocina_gon7t0.png?alt=media&token=d4a6bf3d-d90e-4e7b-9a2f-f0b8b2c14af0'}}
           style={helloSlideStyles.logo} 
         />
     </View>

@@ -1,9 +1,9 @@
 import {faStar as offStar} from "@fortawesome/free-regular-svg-icons";
-import { faAngleLeft, faStar as onStar, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faStar as onStar, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { useState } from "react";
 import { useEffect } from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { califScreenStyle } from "./styles";
 
 export default function CalifScreen(props){

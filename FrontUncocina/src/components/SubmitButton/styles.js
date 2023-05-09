@@ -8,7 +8,8 @@ export const submitButtonStyles = StyleSheet.create({
     width: '80%',
     height: 50,
     borderRadius: 15,
-    marginTop: 50
+    marginTop: 50,
+    marginBottom:50
   },
   submitText:{
     fontFamily: 'MulishBold',

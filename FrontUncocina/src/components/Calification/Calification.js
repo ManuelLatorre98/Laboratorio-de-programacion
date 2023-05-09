@@ -3,8 +3,6 @@ import { faStar } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { useEffect } from "react";
 import { Text, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleShow } from "../../store/slices/navBar/navBar";
 import { calificationStyles } from "./style";
 
 

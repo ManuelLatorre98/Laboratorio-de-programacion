@@ -2,8 +2,6 @@ import { ScrollView } from "react-native";
 import Step from "./Step";
 import { stepsListStyle } from "./styles";
 
-
-
 export default function StepsList(props){
   const {scrollContainer} = stepsListStyle
   const {steps}= props

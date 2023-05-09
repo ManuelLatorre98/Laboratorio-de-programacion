@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { BackToTopStyles} from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";

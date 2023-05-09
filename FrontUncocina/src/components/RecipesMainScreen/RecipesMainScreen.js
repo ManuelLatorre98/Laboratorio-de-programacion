@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategories } from "../../store/slices/categories/categories";
-import { setIsShow, toggleShow } from "../../store/slices/navBar/navBar";
-import { getAllRecipes, fullReset, resetRecipes } from "../../store/slices/recipes/recipesSlice";
+import { setIsShow} from "../../store/slices/navBar/navBar";
+import { fullReset } from "../../store/slices/recipes/recipesSlice";
 import CategorySlide from "../CategorySlide/CategorySlide";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import Selector from "../Selector/Selector";
 import HelloSlide from "./HelloSlide";
 import { recipesStyles } from "./styles";
 import BackToTopFlatListButton from "../BackToTopFlatListButton/BackToTopFlatListButton";
-import { useIsFocused } from "@react-navigation/native";
+
 
 export default function RecipesMainScreen(props){
   //PROPS
@@ -89,19 +89,7 @@ export default function RecipesMainScreen(props){
   let listViewRef //Reference to flatList
   function backToTopOnPress(){
     listViewRef.scrollToOffset({offset:0, animated:true})
-   
   }
-
-  //RENDER COMPONENTS
-  const recipeElements = recipes.map((recipe, i)=>{
-    return <RecipeCard 
-      key={'recipe'+i}
-      recipe_name={recipe.recipe_name} 
-      avgCalif={recipe.avgCalif ==null? 0: recipe.avgCalif}
-      imageURL={recipe.imageURL}
-      estimatedTime={recipe.estimatedTime}
-    />
-  })   
 
   const renderTopElements=()=>{
     return (
@@ -171,9 +159,11 @@ export default function RecipesMainScreen(props){
   useEffect(()=>{
     if(!show) dispatch(setIsShow(true))
     dispatch(getAllCategories()) //There will not be many categories, so I get them all when load the page
+    
   },[])
 
   useEffect(()=>{
+    
     onDispatch({
       from:pagination.from,
       amount:pagination.amount,
@@ -206,7 +196,7 @@ export default function RecipesMainScreen(props){
           titleText={'Categorías'} 
           items={getCategoriesNames()} 
           selectedItems= {selectedCategories}
-          handleCategories={handleCategories}
+          handleItems={handleCategories}
           handleSelectItem={handleSelectCategory}
         />
       }

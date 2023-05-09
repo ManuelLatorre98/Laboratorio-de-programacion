@@ -75,7 +75,9 @@ module.exports = {
         sqlWhere = `WHERE DATEDIFF(CURRENT_DATE(), creationDate) <= ${maxDiffDays} `
       }
     }
+    
     const queryStr = sqlSelect+sqlFrom+sqlWhere+sqlOrderby+sqlLimit
+
     const [rows] = await pool.query(queryStr)
     return rows;
   },

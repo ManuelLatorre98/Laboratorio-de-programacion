@@ -4,7 +4,7 @@ import { homeStyles } from "./styles";
 export default function Logo() {
   return(
     <Image source={{
-      uri:'https://res.cloudinary.com/dqzmhh9qh/image/upload/v1674839124/uncocina/Uncocina_gon7t0.png'
+      uri:'https://firebasestorage.googleapis.com/v0/b/uncocina.appspot.com/o/recipes%2FUncocina_gon7t0.png?alt=media&token=d4a6bf3d-d90e-4e7b-9a2f-f0b8b2c14af0'
     }}
     style={homeStyles.logo}
     />

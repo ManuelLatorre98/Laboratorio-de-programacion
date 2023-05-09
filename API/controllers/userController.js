@@ -1,4 +1,4 @@
-const { getUser, getUsers, getUserEmailOrName, getUserById, createFav, removeFav, getFavs, removeCalif, createCalif, getCalifs, deleteUser, updateUser, getRecipes } = require("../services/userService")
+const { getUser, getUsers, getUserEmailOrName, getUserById, createFav, removeFav, getFavs, removeCalif, createCalif, getCalifs, deleteUser, updateUser, getRecipes, getFav, getActualCalif, updateCalif } = require("../services/userService")
 
 module.exports = {
   async getUser(req,res,next){
@@ -44,13 +44,23 @@ module.exports = {
 
   async getFavs(req, res, next){
     try{
-      const {user_email, user_name,from, amount,sort_by, order_by} = req.body
-      const rowsFav = await getFavs(user_email, user_name, from, amount,sort_by, order_by)
+      const {user_email, user_name,from, amount,sort_by, order_by, categories, maxDiffDays} = req.query
+      const rowsFav = await getFavs(user_email, user_name, from, amount,sort_by, order_by, categories)
       res.status(200).json(rowsFav)
     }catch(err){
       next(err)
     }
   },
+  async checkFav(req, res, next){
+    try{
+      const {user_email, user_name,recipe_name, recipe_user_email, recipe_user_name} = req.body
+      rowsFav= await getFav(recipe_name, recipe_user_email, recipe_user_name, user_email, user_name)
+      res.status(200).json(rowsFav.length>0)
+    }catch(err){
+      next(err)
+    }
+  },
+
   async createFav(req, res, next){
     try{
       const {recipe_name, recipe_user_email, recipe_user_name, user_email, user_name} = req.body
@@ -78,12 +88,33 @@ module.exports = {
       next(err)
     }
   },
+  async getActualCalif(req, res, next){
+    try{
+      const {recipe_name, recipe_user_email, recipe_user_name, user_email, user_name} = req.query
+      const [rowsActualCalif] = await getActualCalif(recipe_name, recipe_user_email, recipe_user_name, user_email, user_name)
+      res.status(200).json(rowsActualCalif)
+    }catch(err){
+
+      next(err)
+    }
+  },
   async createCalif(req, res, next){
     try{
       const {recipe_name, recipe_user_email, recipe_user_name, user_email, user_name, calif} = req.body
       const newCalif = await createCalif(recipe_name, recipe_user_email, recipe_user_name, user_email, user_name, calif)
       res.status(200).json(newCalif)
     }catch(err){
+      console.log(err)
+      next(err)
+    }
+  },
+  async updateCalif(req, res, next){
+    try{
+      const {recipe_name, recipe_user_email, recipe_user_name, user_email, user_name, calif} = req.body
+      const newCalif = await updateCalif(recipe_name, recipe_user_email, recipe_user_name, user_email, user_name, calif)
+      res.status(200).json(newCalif)
+    }catch(err){
+      console.log(err)
       next(err)
     }
   },

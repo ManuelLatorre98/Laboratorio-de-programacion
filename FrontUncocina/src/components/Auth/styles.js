@@ -1,6 +1,13 @@
 import { StyleSheet } from "react-native";
 
 export const homeStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: '100%',
+    backgroundColor: 'rgba(33,32,32,255)',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   logo:{
     width:160, 
     height:160

@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { Text, View } from "react-native";
 import { stepTitleStyle } from "./styles";
 
-
-
 export default function StepTitle(props){
   const {container, titleText, icon} = stepTitleStyle
   return(

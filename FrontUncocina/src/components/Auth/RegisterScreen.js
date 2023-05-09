@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ScrollView, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { commonStyles} from '../commonStyles';
 import { homeStyles } from './styles';
 import { registerUser, resetAuth} from '../../store/slices/auth/authSlice';
 import SubmitButton from '../SubmitButton/SubmitButton';
@@ -46,7 +45,7 @@ export default function RegisterScreen() {
     showsVerticalScrollIndicator={false}
     contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
 
-      <View style={commonStyles.container}>
+      <View style={homeStyles.container}>
         <Logo/>
         {showErrorMessage &&  <Text style={homeStyles.errorApiMessageText}>{'Email o nombre de usuario ya existentes'}</Text>}
         <CustomTextInput

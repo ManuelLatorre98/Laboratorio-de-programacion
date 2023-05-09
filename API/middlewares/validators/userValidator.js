@@ -24,12 +24,24 @@ const validateExistUserBody = async(req, res, next) => {
   if(user_rows.length>0){//If the user does exist already
     next()
   }else{//If the user doesn't exist already
+    
     res.status(409).json({error: "User not exist in data base"})
   }
 }
 
 const validateExistUserParams = async(req, res, next) => {
   const data=req.params
+  user_rows = await validateExistUser(data)
+  if(user_rows.length>0){//If the user does exist already
+    next()
+  }else{//If the user doesn't exist already
+    res.status(409).json({error: "User not exist in data base"})
+  }
+}
+
+const validateExistUserQuery = async(req, res, next) => {
+  
+  const data=req.query
   user_rows = await validateExistUser(data)
   if(user_rows.length>0){//If the user does exist already
     next()
@@ -142,5 +154,6 @@ module.exports = {
   validateNotExistFav,
   validateExistFav,
   validateExistCalif,
-  validateNotExistCalif
+  validateNotExistCalif,
+  validateExistUserQuery
 }

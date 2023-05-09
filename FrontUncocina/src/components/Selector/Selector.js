@@ -1,14 +1,11 @@
-import {faStar as offStar} from "@fortawesome/free-regular-svg-icons";
-import { faAngleLeft, faStar as onStar, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { useState } from "react";
-import { useEffect } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import ItemSelector from "./ItemSelector";
 import { selectorStyle } from "./styles";
 
 export default function Selector(props){
-  const {titleText, items, selectedItems, handleCategories, handleSelectItem} = props
+  const {titleText, items, selectedItems, handleItems, handleSelectItem} = props
   const {container, itemContainer, titleContainer, exitIcon, title,exit, itemListContainer} = selectorStyle
 
   //RENDER COMPONENTS
@@ -22,11 +19,11 @@ export default function Selector(props){
 
   })  
   return(
-      <TouchableOpacity onPress={handleCategories} style={container}>
+      <TouchableOpacity onPress={handleItems} style={container}>
         <TouchableOpacity activeOpacity={1} style={itemContainer}>
           <View style={titleContainer}>
             <Text style={title}>{titleText}</Text>
-            <TouchableOpacity onPress={handleCategories} style={exit}>
+            <TouchableOpacity onPress={handleItems} style={exit}>
               <FontAwesomeIcon icon={faXmark} size={25} style={exitIcon} />
             </TouchableOpacity>
           </View>
